@@ -17,14 +17,13 @@
     <h1>Covasg</h1>
 
     <nav>
- <nav>
-    <a href="../administrador.html">Inicio</a>
-    <a href="../usuarios.html">Usuarios</a>
-    <a href="consultaactivos.php">Activos</a>
-    <a href="../tickets/consultatickets.php">Tickets</a>
-    <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
-    <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
-</nav>
+        <a href="../administrador.php">Inicio</a>
+        <a href="../usuarios.html">Usuarios</a>
+        <a href="consultaactivos.php">Activos</a>
+        <a href="../tickets/consultatickets.php">Tickets</a>
+        <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
+        <a href="../../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+    </nav>
 
 </header>
 
@@ -74,7 +73,8 @@
 
         <h3>Datos del activo</h3>
 
-            <form action="../../php/alta_activos.php" method="POST">
+        <form action="../../php/alta_activos.php" method="POST">
+
             <div class="campos">
 
                 <div class="campo">
@@ -183,7 +183,7 @@
 
             <div class="botones">
 
-               <a href="consultaactivos.php" class="boton cancelar">
+                <a href="consultaactivos.php" class="boton cancelar">
                     Cancelar
                 </a>
 

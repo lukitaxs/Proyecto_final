@@ -27,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         header("Location: ../administrador/activos/altaactivos.php?mensaje=error");
-
     }
 
 } else {

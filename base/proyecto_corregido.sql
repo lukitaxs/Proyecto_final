@@ -3,6 +3,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `intervencion_diagnostico`;
 DROP TABLE IF EXISTS `historial_asignacion`;
 DROP TABLE IF EXISTS `ubicacion`;
+DROP TABLE IF EXISTS `solicitud`;
 DROP TABLE IF EXISTS `ticket`;
 DROP TABLE IF EXISTS `tecnico`;
 DROP TABLE IF EXISTS `activo_tecnologico`;
@@ -77,6 +78,21 @@ CREATE TABLE `ticket` (
   CONSTRAINT `fk_ticket_usuario`
     FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
     ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE `solicitud` (
+  `id_solicitud` int(11) NOT NULL AUTO_INCREMENT,
+  `id_usuario` int(11) NOT NULL,
+  `titulo` varchar(150) NOT NULL,
+  `tipo` varchar(50) NOT NULL,
+  `prioridad` varchar(20) NOT NULL,
+  `descripcion` text NOT NULL,
+  `estado` varchar(20) NOT NULL DEFAULT 'Pendiente',
+  `fecha_creacion` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id_solicitud`),
+  KEY `id_usuario` (`id_usuario`),
+  CONSTRAINT `solicitud_ibfk_1`
+    FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 CREATE TABLE `ubicacion` (

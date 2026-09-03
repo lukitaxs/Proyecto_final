@@ -31,12 +31,12 @@ $resultado = mysqli_query($conexion, $consulta);
     <h1>Covasg - Administrador</h1>
 
     <nav>
-        <a href="../administrador.html">Inicio</a>
+        <a href="../administrador.php">Inicio</a>
         <a href="../usuarios.html">Usuarios</a>
         <a href="../activos/consultaactivos.php">Activos</a>
         <a href="../tickets/consultatickets.php">Tickets</a>
         <a href="consultasolicitudes.php">Solicitudes</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="../../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
     </nav>
 
 </header>

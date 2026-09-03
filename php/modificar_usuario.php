@@ -10,14 +10,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasenia = $_POST["contrasenia"];
     $id_rol = $_POST["id_rol"];
 
-    $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
+    /* Si no se escribió una nueva contraseña */
+    if ($contrasenia == "") {
 
-    $consulta = "UPDATE usuario
-                 SET nombre = '$nombre',
-                     correo = '$correo',
-                     contrasenia = '$contrasenia',
-                     id_rol = '$id_rol'
-                 WHERE id_usuario = '$id_usuario'";
+        $consulta = "UPDATE usuario
+                     SET nombre = '$nombre',
+                         correo = '$correo',
+                         id_rol = '$id_rol'
+                     WHERE id_usuario = '$id_usuario'";
+
+    } else {
+
+        /* Si se escribió una nueva contraseña */
+        $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
+
+        $consulta = "UPDATE usuario
+                     SET nombre = '$nombre',
+                         correo = '$correo',
+                         contrasenia = '$contrasenia',
+                         id_rol = '$id_rol'
+                     WHERE id_usuario = '$id_usuario'";
+
+    }
 
     $resultado = mysqli_query($conexion, $consulta);
 

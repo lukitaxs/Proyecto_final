@@ -43,7 +43,7 @@ $resultadoRoles = mysqli_query($conexion, $consultaRoles);
 
     <nav>
 
-        <a href="administrador.html">Inicio</a>
+        <a href="administrador.php">Inicio</a>
         <a href="usuarios.html">Usuarios</a>
         <a href="activos/consultaactivos.php">Activos</a>
         <a href="tickets/consultatickets.php">Tickets</a>
@@ -120,7 +120,7 @@ $resultadoRoles = mysqli_query($conexion, $consultaRoles);
 
                 </div>
 
-                            <div class="campo">
+                <div class="campo">
 
                     <label for="contrasenia">
                         Nueva contraseña
@@ -130,8 +130,7 @@ $resultadoRoles = mysqli_query($conexion, $consultaRoles);
                         type="password"
                         id="contrasenia"
                         name="contrasenia"
-                        placeholder="Ingrese una nueva contraseña"
-                        required
+                        placeholder="Dejar vacío para mantener la contraseña actual"
                     >
 
                 </div>
