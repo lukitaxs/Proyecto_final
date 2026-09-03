@@ -1,0 +1,156 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4b006e, #8b4cf5);
+    min-height: 100vh;
+}
+
+header {
+    background-color: white;
+    padding: 15px 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: #66008b;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #66008b;
+}
+
+.cerrar-sesion {
+    background-color: #4da6ff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.cerrar-sesion:hover {
+    color: white;
+    background-color: #2589ec;
+}
+
+main {
+    width: 70%;
+    margin: 30px auto;
+}
+
+.titulo {
+    background-color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.icono {
+    font-size: 28px;
+}
+
+.titulo h2 {
+    color: #66008b;
+    margin: 0 0 5px 0;
+}
+
+.titulo p {
+    color: #555;
+    margin: 0;
+}
+
+.formulario-contenedor {
+    background-color: white;
+    padding: 20px 25px;
+    border-radius: 12px;
+}
+
+.formulario-contenedor h3 {
+    color: #66008b;
+    margin: 0 0 15px 0;
+}
+
+.campo {
+    margin-bottom: 12px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.campo input {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+
+.campo input:focus {
+    outline: none;
+    border-color: #66008b;
+}
+
+.botones {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+}
+
+.boton {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.guardar {
+    background-color: #66008b;
+    color: white;
+}
+
+.guardar:hover {
+    background-color: #8500b5;
+}
+
+.cancelar {
+    background-color: #777;
+    color: white;
+}
+
+.cancelar:hover {
+    background-color: #555;
+}
+
+footer {
+    background-color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin: 0;
+}

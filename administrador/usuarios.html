@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gestión de usuarios - Covasg</title>
+
+    <link rel="stylesheet" href="../administrador/css/estilousuarios.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Covasg</h1>
+
+        <nav>
+            <a href="administrador.html">Inicio</a>
+            <a href="usuarios.html">Usuarios</a>
+            <a href="activos/consultaactivos.php">Activos</a>
+            <a href="tickets/consultatickets.php">Tickets</a>
+            <a href="solicitudes/consultasolicitudes.php">Solicitudes</a>
+            <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="titulo">
+
+            <h2>Gestión de usuarios</h2>
+
+            <p>
+                Desde esta sección puede registrar, consultar y eliminar
+                usuarios del sistema.
+            </p>
+
+        </section>
+
+        <section class="opciones">
+
+            <a href="altausuario.php" class="tarjeta">
+
+                <div class="icono">➕</div>
+
+                <h3>Alta de usuario</h3>
+
+                <p>
+                    Registre un nuevo usuario y seleccione el rol que tendrá
+                    dentro del sistema.
+                </p>
+
+                <span>Agregar usuario</span>
+
+            </a>
+
+            <a href="bajausuario.php" class="tarjeta">
+
+                <div class="icono">➖</div>
+
+                <h3>Baja de usuario</h3>
+
+                <p>
+                    Seleccione un usuario registrado para eliminarlo del
+                    sistema.
+                </p>
+
+                <span>Eliminar usuario</span>
+
+            </a>
+
+            <a href="consultausuario.php" class="tarjeta">
+
+                <div class="icono">🔎</div>
+
+                <h3>Consultar usuarios</h3>
+
+                <p>
+                    Consulte la información y el rol de todos los usuarios
+                    registrados.
+                </p>
+
+                <span>Ver usuarios</span>
+
+            </a>
+
+        </section>
+
+        <section class="informacion">
+
+            <h2>Roles disponibles</h2>
+
+            <div class="roles">
+
+                <div class="rol">
+
+                    <div class="icono-rol">👤</div>
+
+                    <div>
+                        <h3>Solicitante</h3>
+
+                        <p>
+                            Puede crear tickets, realizar solicitudes de
+                            servicio y consultar sus estados.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="rol">
+
+                    <div class="icono-rol">🛠️</div>
+
+                    <div>
+                        <h3>Técnico</h3>
+
+                        <p>
+                            Atiende tickets, registra diagnósticos y actualiza
+                            el estado de las incidencias.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="rol">
+
+                    <div class="icono-rol">⚙️</div>
+
+                    <div>
+                        <h3>Administrador</h3>
+
+                        <p>
+                            Administra usuarios, inventario, tickets,
+                            solicitudes e informes del sistema.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Covasg - Sistema de soporte informático.</p>
+    </footer>
+
+</body>
+
+</html>

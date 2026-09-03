@@ -1,0 +1,14 @@
+# Archivos temporales
+*.tmp
+*.log
+
+# Archivos de respaldo del editor
+*~
+*.bak
+
+# Configuración de editores
+.vscode/
+.idea/
+
+# Backups generados de la base de datos
+base/backups/

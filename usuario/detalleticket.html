@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del ticket - Covasg</title>
+    <link rel="stylesheet" href="../usuario/cssusuario/estilodetalleticket.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Covasg</h1>
+
+      
+    <nav>
+        <a href="usuario.html">Inicio</a>
+        <a href="ticket.html">Crear ticket</a>
+        <a href="misticket.html">Mis tickets</a>
+        <a href="crearsolicitud.html">Solicitudes</a>
+        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+    </nav>
+
+
+    </header>
+
+    <main>
+
+        <section class="titulo">
+
+            <div>
+                <h2>Ticket #002</h2>
+
+                <p>
+                    Aquí puede ver toda la información del ticket.
+                </p>
+            </div>
+
+            <span class="estado proceso">En proceso</span>
+
+        </section>
+
+        <section class="detalle">
+
+            <h3>Información del problema</h3>
+
+            <div class="datos">
+
+                <div class="dato">
+                    <strong>Título</strong>
+                    <p>No funciona la impresora</p>
+                </div>
+
+                <div class="dato">
+                    <strong>Fecha</strong>
+                    <p>03/08/2026</p>
+                </div>
+
+                <div class="dato">
+                    <strong>Categoría</strong>
+                    <p>Impresora</p>
+                </div>
+
+                <div class="dato">
+                    <strong>Prioridad</strong>
+                    <p>Media</p>
+                </div>
+
+                <div class="dato">
+                    <strong>Equipo relacionado</strong>
+                    <p>Impresora de Administración</p>
+                </div>
+
+                <div class="dato">
+                    <strong>Técnico asignado</strong>
+                    <p>Juan Pérez</p>
+                </div>
+
+            </div>
+
+            <div class="descripcion">
+
+                <strong>Descripción</strong>
+
+                <p>
+                    La impresora no imprime. Aparece un mensaje de error
+                    y los documentos quedan esperando.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="seguimiento">
+
+            <h3>Seguimiento del ticket</h3>
+
+            <div class="mensaje usuario">
+
+                <div class="mensaje-titulo">
+                    <strong>Usuario solicitante</strong>
+                    <span>03/08/2026 - 09:20</span>
+                </div>
+
+                <p>
+                    La impresora dejó de funcionar esta mañana.
+                </p>
+
+            </div>
+
+            <div class="mensaje tecnico">
+
+                <div class="mensaje-titulo">
+                    <strong>Técnico de soporte</strong>
+                    <span>03/08/2026 - 11:10</span>
+                </div>
+
+                <p>
+                    Se está revisando la conexión y los controladores
+                    de la impresora.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="respuesta">
+
+            <h3>Agregar comentario</h3>
+
+            <form>
+
+                <label for="comentario">
+                    Puede agregar información sobre el problema.
+                </label>
+
+                <textarea
+                    id="comentario"
+                    name="comentario"
+                    placeholder="Escriba un comentario..."
+                ></textarea>
+
+                <div class="botones">
+
+                  <a href="misticket.html" class="boton volver"> </a>
+
+                    <button type="submit" class="boton enviar">
+                        Enviar comentario
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Covasg - Sistema de soporte informático.</p>
+    </footer>
+
+</body>
+
+</html>

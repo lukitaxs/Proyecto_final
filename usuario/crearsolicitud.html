@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear solicitud - Covasg</title>
+
+    <link rel="stylesheet"
+        href="../usuario/cssusuario/estilocrearsolicitud.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Covasg</h1>
+
+        <nav>
+            <a href="usuario.html">Inicio</a>
+            <a href="ticket.html">Crear ticket</a>
+            <a href="misticket.php">Mis tickets</a>
+            <a href="crearsolicitud.html">Crear solicitud</a>
+            <a href="missolicitudes.php">Mis solicitudes</a>
+            <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="titulo">
+
+            <div>
+                <h2>Crear solicitud de servicio</h2>
+
+                <p>
+                    Complete el formulario para solicitar un servicio
+                    al equipo de soporte.
+                </p>
+            </div>
+
+        </section>
+
+        <section class="detalle">
+
+            <h3>Información de la solicitud</h3>
+
+            <form action="../php/crear_solicitud.php" method="POST">
+
+                <div class="datos">
+
+                    <div class="dato">
+
+                        <label for="titulo">
+                            <strong>Título de la solicitud</strong>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="titulo"
+                            name="titulo"
+                            placeholder="Ejemplo: Instalar un programa"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="dato">
+
+                        <label for="tipo">
+                            <strong>Tipo de servicio</strong>
+                        </label>
+
+                        <select id="tipo" name="tipo" required>
+
+                            <option value="">
+                                Seleccione un servicio
+                            </option>
+
+                            <option value="instalacion_software">
+                                Instalación de software
+                            </option>
+
+                            <option value="creacion_usuario">
+                                Creación de usuario
+                            </option>
+
+                            <option value="cambio_contrasena">
+                                Cambio de contraseña
+                            </option>
+
+                            <option value="acceso_sistema">
+                                Acceso a un sistema
+                            </option>
+
+                            <option value="equipamiento">
+                                Solicitud de equipamiento
+                            </option>
+
+                            <option value="otro">
+                                Otro servicio
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="dato">
+
+                        <label for="prioridad">
+                            <strong>Prioridad</strong>
+                        </label>
+
+                        <select id="prioridad" name="prioridad" required>
+
+                            <option value="">
+                                Seleccione una prioridad
+                            </option>
+
+                            <option value="Baja">Baja</option>
+                            <option value="Media">Media</option>
+                            <option value="Alta">Alta</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <div class="descripcion">
+
+                    <label for="descripcion">
+                        <strong>Descripción de la solicitud</strong>
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        placeholder="Explique qué servicio necesita..."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <div class="botones">
+
+                    <a href="usuario.html" class="boton volver">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="boton enviar">
+                        Enviar solicitud
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Covasg - Sistema de soporte informático.</p>
+    </footer>
+
+</body>
+
+</html>

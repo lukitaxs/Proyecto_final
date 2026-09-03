@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4b006e, #8b4cf5);
+    min-height: 100vh;
+}
+
+header {
+    background-color: white;
+    padding: 15px 3%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    color: #66008b;
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #66008b;
+}
+
+.cerrar-sesion {
+    background-color: #4da6ff;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.cerrar-sesion:hover {
+    color: white;
+}
+
+main {
+    width: 85%;
+    margin: 35px auto;
+    min-height: 75vh;
+}
+
+.bienvenida {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.bienvenida h2 {
+    color: #66008b;
+    margin-top: 0;
+}
+
+.bienvenida p {
+    color: #555;
+    margin-bottom: 0;
+}
+
+.tarjetas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tarjeta {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #333;
+}
+
+.tarjeta h3 {
+    color: #66008b;
+    margin-top: 0;
+}
+
+.tarjeta:hover {
+    transform: translateY(-3px);
+}
+
+footer {
+    background-color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+footer p {
+    margin: 0;
+}
+
+
+.tabla-contenedor {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: #66008b;
+    color: white;
+    padding: 12px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+td a {
+    text-decoration: none;
+    background-color: #66008b;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 5px;
+}
+
+td a:hover {
+    background-color: #8500b5;
+}

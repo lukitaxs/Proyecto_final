@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear ticket - Covasg</title>
+    <link rel="stylesheet" href="../usuario/cssusuario/estiloticket.css">
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Covasg</h1>
+
+        <nav>
+            <a href="usuario.html">Inicio</a>
+            <a href="ticket.html">Crear ticket</a>
+            <a href="misticket.php">Mis tickets</a>
+            <a href="crearsolicitud.html">Solicitudes</a>
+            <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="titulo">
+
+            <h2>Crear ticket</h2>
+
+            <p>
+                Complete el formulario para informar un problema.
+            </p>
+
+        </section>
+
+        <section class="formulario-contenedor">
+
+            <form action="../php/crear_ticket.php" method="POST">
+
+                <div class="grupo">
+
+                    <label for="titulo">Título del problema</label>
+
+                    <input
+                        type="text"
+                        id="titulo"
+                        name="titulo"
+                        placeholder="Ejemplo: La computadora no enciende"
+                        required
+                    >
+
+                </div>
+
+                <div class="grupo">
+
+                    <label for="categoria">Tipo de problema</label>
+
+                    <select id="categoria" name="categoria" required>
+
+                        <option value="">Seleccione una opción</option>
+                        <option value="equipo">Problema con un equipo</option>
+                        <option value="software">Problema con un programa</option>
+                        <option value="red">Problema de internet o red</option>
+                        <option value="impresora">Problema con una impresora</option>
+                        <option value="otro">Otro problema</option>
+
+                    </select>
+
+                </div>
+
+                <div class="grupo">
+
+                    <label for="equipo">Equipo relacionado</label>
+
+                    <input
+                        type="text"
+                        id="equipo"
+                        name="equipo"
+                        placeholder="Ejemplo: PC de Administración 02"
+                    >
+
+                </div>
+
+                <div class="grupo">
+
+                    <label for="prioridad">Prioridad</label>
+
+                    <select id="prioridad" name="prioridad" required>
+
+                        <option value="">Seleccione una opción</option>
+                        <option value="baja">Baja</option>
+                        <option value="media">Media</option>
+                        <option value="alta">Alta</option>
+
+                    </select>
+
+                </div>
+
+                <div class="grupo">
+
+                    <label for="descripcion">Descripción del problema</label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        placeholder="Explique de forma simple qué problema tiene."
+                        required
+                    ></textarea>
+
+                </div>
+
+                <div class="grupo">
+
+                    <label for="archivo">Agregar una imagen</label>
+
+                    <input
+                        type="file"
+                        id="archivo"
+                        name="archivo"
+                        accept="image/*"
+                    >
+
+                    <small>
+                        Este campo es opcional.
+                    </small>
+
+                </div>
+
+                <div class="botones">
+
+                    <a href="usuario.html" class="boton cancelar">Cancelar</a>
+
+                    <button type="submit" class="boton enviar">
+                        Enviar ticket
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Covasg - Sistema de soporte informático.</p>
+    </footer>
+
+</body>
+
+</html>

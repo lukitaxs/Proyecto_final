@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Mis solicitudes - Covasg</title>
+
+    <link  rel="stylesheet"  href="../usuario/cssusuario/estilomissolicitudes.css"
+    >
+</head>
+
+<body>
+
+    <header>
+
+        <h1>Covasg</h1>
+
+        <nav>
+            <a href="usuario.html">Inicio</a>
+            <a href="ticket.html">Crear ticket</a>
+            <a href="misticket.php">Mis tickets</a>
+            <a href="crearsolicitud.html">Crear solicitud</a>
+            <a href="missolicitudes.php">Mis solicitudes</a>
+            <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="titulo">
+
+            <h2>Mis solicitudes</h2>
+
+            <p>
+                Consulte las solicitudes de servicio que ha realizado.
+            </p>
+
+        </section>
+
+        <section class="tabla">
+
+            <div class="tabla-contenedor">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>Solicitud</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Acción</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>#001</td>
+
+                            <td>
+                                Instalación de Visual Studio Code
+                            </td>
+
+                            <td>04/08/2026</td>
+
+                            <td>
+                                <span class="pendiente">
+                                    Pendiente
+                                </span>
+                            </td>
+
+                            <td>
+                                <a
+                                    href="detallesolicitud.html"
+                                    class="boton-ver"
+                                >
+                                    Ver
+                                </a>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#002</td>
+
+                            <td>
+                                Configuración de impresora
+                            </td>
+
+                            <td>02/08/2026</td>
+
+                            <td>
+                                <span class="proceso">
+                                    En proceso
+                                </span>
+                            </td>
+
+                            <td>
+                                <a
+                                    href="detallesolicitud.html"
+                                    class="boton-ver"
+                                >
+                                    Ver
+                                </a>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>#003</td>
+
+                            <td>
+                                Creación de usuario
+                            </td>
+
+                            <td>29/07/2026</td>
+
+                            <td>
+                                <span class="resuelto">
+                                    Finalizada
+                                </span>
+                            </td>
+
+                            <td>
+                                <a
+                                    href="detallesolicitud.html"
+                                    class="boton-ver"
+                                >
+                                    Ver
+                                </a>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Covasg - Sistema de soporte informático.</p>
+    </footer>
+
+</body>
+
+</html>

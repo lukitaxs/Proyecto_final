@@ -1,0 +1,323 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#4b006e,#6b21a8,#8b5cf6);
+    color:#333;
+}
+
+/* HEADER */
+
+header{
+    background:white;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+header h1{
+    color:#5b0080;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+}
+
+nav a{
+    color:#333;
+    text-decoration:none;
+    font-weight:bold;
+    margin-left:22px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#4facfe;
+}
+
+nav .cerrar-sesion{
+    background:#4facfe;
+    color:white;
+    padding:10px 16px;
+    border-radius:8px;
+}
+
+nav .cerrar-sesion:hover{
+    background:#5b0080;
+    color:white;
+}
+
+/* CONTENIDO */
+
+main{
+    width:90%;
+    max-width:1000px;
+    margin:50px auto;
+}
+
+section{
+    background:#faf8ff;
+    padding:35px;
+    border-radius:18px;
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+    margin-bottom:30px;
+}
+
+/* TÍTULO */
+
+.titulo{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.titulo h2{
+    color:#5b0080;
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.estado{
+    display:inline-block;
+    padding:9px 16px;
+    border-radius:20px;
+    font-weight:bold;
+    white-space:nowrap;
+}
+
+.pendiente{
+    background:#ffe082;
+    color:#5d4800;
+}
+
+.proceso{
+    background:#90caf9;
+    color:#0b436b;
+}
+
+.resuelto{
+    background:#a5d6a7;
+    color:#245b27;
+}
+
+/* INFORMACIÓN */
+
+.detalle h3,
+.seguimiento h3,
+.respuesta h3{
+    color:#5b0080;
+    margin-bottom:25px;
+}
+
+.datos{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.dato{
+    background:white;
+    padding:18px;
+    border-radius:12px;
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+}
+
+.dato strong{
+    color:#5b0080;
+}
+
+.dato p{
+    margin-top:8px;
+}
+
+.descripcion{
+    background:white;
+    margin-top:20px;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 12px rgba(0,0,0,.08);
+}
+
+.descripcion strong{
+    color:#5b0080;
+}
+
+.descripcion p{
+    margin-top:10px;
+    line-height:1.6;
+}
+
+/* SEGUIMIENTO */
+
+.mensaje{
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:18px;
+}
+
+.mensaje-titulo{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:10px;
+}
+
+.mensaje-titulo span{
+    color:#666;
+    font-size:14px;
+}
+
+.mensaje p{
+    line-height:1.6;
+}
+
+.usuario{
+    background:white;
+    border-left:5px solid #5b0080;
+}
+
+.tecnico{
+    background:#edf7ff;
+    border-left:5px solid #4facfe;
+}
+
+/* COMENTARIO */
+
+.respuesta label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.respuesta textarea{
+    width:100%;
+    min-height:140px;
+    padding:13px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    resize:vertical;
+    font-size:16px;
+    transition:.3s;
+}
+
+.respuesta textarea:focus{
+    border-color:#4facfe;
+    outline:none;
+    box-shadow:0 0 8px rgba(79,172,254,.35);
+}
+
+/* BOTONES */
+
+.botones{
+    display:flex;
+    justify-content:flex-end;
+    gap:15px;
+    margin-top:25px;
+}
+
+.boton{
+    display:inline-block;
+    padding:12px 22px;
+    border:none;
+    border-radius:8px;
+    text-decoration:none;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.volver{
+    background:#ddd;
+    color:#333;
+}
+
+.volver:hover{
+    background:#c8c8c8;
+}
+
+.enviar{
+    background:#4facfe;
+    color:white;
+}
+
+.enviar:hover{
+    background:#5b0080;
+}
+
+/* FOOTER */
+
+footer{
+    background:white;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:850px){
+
+    header{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
+    nav{
+        justify-content:center;
+    }
+
+    nav a{
+        margin:8px;
+    }
+
+}
+
+@media(max-width:650px){
+
+    main{
+        width:92%;
+        margin:30px auto;
+    }
+
+    section{
+        padding:26px 20px;
+    }
+
+    .titulo{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .titulo h2{
+        font-size:30px;
+    }
+
+    .datos{
+        grid-template-columns:1fr;
+    }
+
+    .mensaje-titulo{
+        flex-direction:column;
+    }
+
+    .botones{
+        flex-direction:column-reverse;
+    }
+
+    .boton{
+        width:100%;
+        text-align:center;
+    }
+
+}
