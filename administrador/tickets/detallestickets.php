@@ -58,14 +58,15 @@ $ticket = mysqli_fetch_array($resultado);
 
     <h1>Covasg</h1>
 
-                    <nav>
-                <a href="../administrador.html">Inicio</a>
-                <a href="../usuarios.html">Usuarios</a>
-                <a href="../activos/consultaactivos.php">Activos</a>
-                <a href="consultatickets.php">Tickets</a>
-                <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
-                <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
-            </nav>
+    <nav>
+        <a href="../administrador.php">Inicio</a>
+        <a href="../usuarios.html">Usuarios</a>
+        <a href="../activos/consultaactivos.php">Activos</a>
+        <a href="consultatickets.php">Tickets</a>
+        <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
+        <a href="../../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+    </nav>
+
 </header>
 
 <main>
@@ -82,7 +83,6 @@ $ticket = mysqli_fetch_array($resultado);
         </div>
 
     </section>
-
 
     <section class="tabla-contenedor">
 
@@ -125,7 +125,6 @@ $ticket = mysqli_fetch_array($resultado);
             <?php echo $ticket["fecha_clierre"]; ?>
         </p>
 
-
         <br>
 
         <h3>Cambiar estado</h3>
@@ -155,7 +154,6 @@ $ticket = mysqli_fetch_array($resultado);
             </button>
 
         </form>
-
 
         <br>
 

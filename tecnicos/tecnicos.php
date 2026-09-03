@@ -30,7 +30,7 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 2) {
     <h1>Covasg</h1>
 
     <nav>
-        <a href="tecnico.html">Inicio</a>
+        <a href="tecnicos.php">Inicio</a>
         <a href="tickets.php">Tickets</a>
         <a href="solicitudes.php">Solicitudes</a>
         <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>

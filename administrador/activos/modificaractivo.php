@@ -22,8 +22,8 @@ $activo = mysqli_fetch_array($resultado);
 
     <title>Modificar activo - Covasg</title>
 
-        <link rel="stylesheet" href="../css/estilomodificaractivo.css">
-    </head>
+    <link rel="stylesheet" href="../css/estilomodificaractivo.css">
+</head>
 
 <body>
 
@@ -32,12 +32,12 @@ $activo = mysqli_fetch_array($resultado);
     <h1>Covasg</h1>
 
     <nav>
-        <a href="../administrador.html">Inicio</a>
+        <a href="../administrador.php">Inicio</a>
         <a href="../usuarios.html">Usuarios</a>
         <a href="consultaactivos.php">Activos</a>
         <a href="../tickets/consultatickets.php">Tickets</a>
         <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="../../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
     </nav>
 
 </header>

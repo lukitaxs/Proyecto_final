@@ -26,13 +26,13 @@ $resultado = mysqli_query($conexion, $consulta);
     <h1>Covasg</h1>
 
     <nav>
-        <a href="../administrador.html">Inicio</a>
+        <a href="../administrador.php">Inicio</a>
         <a href="../usuarios.html">Usuarios</a>
         <a href="../activos/consultaactivos.php">Activos</a>
         <a href="../tickets/consultatickets.php">Tickets</a>
         <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
         <a href="consultatecnicos.php">Técnicos</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="../../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
     </nav>
 
 </header>
@@ -80,7 +80,6 @@ $resultado = mysqli_query($conexion, $consulta);
 
             </div>
 
-
             <div class="campo">
 
                 <label>Rol:</label>
@@ -104,7 +103,6 @@ $resultado = mysqli_query($conexion, $consulta);
                 </select>
 
             </div>
-
 
             <div class="campo">
 
@@ -133,7 +131,6 @@ $resultado = mysqli_query($conexion, $consulta);
                 </select>
 
             </div>
-
 
             <div class="campo">
 
@@ -166,7 +163,6 @@ $resultado = mysqli_query($conexion, $consulta);
                 </select>
 
             </div>
-
 
             <div class="botones">
 

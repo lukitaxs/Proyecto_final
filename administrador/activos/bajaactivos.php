@@ -25,14 +25,14 @@ $resultado = mysqli_query($conexion, $consulta);
 
     <h1>Covasg</h1>
 
-  <nav>
-    <a href="../administrador.html">Inicio</a>
-    <a href="../usuarios.html">Usuarios</a>
-    <a href="consultaactivos.php">Activos</a>
-    <a href="../tickets/consultatickets.php">Tickets</a>
-    <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
-    <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
-</nav>
+    <nav>
+        <a href="../administrador.php">Inicio</a>
+        <a href="../usuarios.html">Usuarios</a>
+        <a href="consultaactivos.php">Activos</a>
+        <a href="../tickets/consultatickets.php">Tickets</a>
+        <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
+        <a href="../../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+    </nav>
 
 </header>
 
@@ -142,6 +142,7 @@ $resultado = mysqli_query($conexion, $consulta);
                 <a href="consultaactivos.php" class="boton cancelar">
                     Cancelar
                 </a>
+
                 <button type="submit" class="boton guardar">
                     Eliminar activo
                 </button>

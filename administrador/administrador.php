@@ -31,7 +31,7 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
         <h1>Covasg</h1>
 
         <nav>
-            <a href="administrador.html">Inicio</a>
+            <a href="administrador.php">Inicio</a>
             <a href="usuarios.html">Usuarios</a>
             <a href="activos/consultaactivos.php">Activos</a>
             <a href="tickets/consultatickets.php">Tickets</a>
@@ -69,33 +69,34 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
                 <span>Administrar usuarios</span>
 
             </a>
-                <a href="activos/consultaactivos.php" class="tarjeta">
 
-                    <div class="icono">💻</div>
+            <a href="activos/consultaactivos.php" class="tarjeta">
 
-                    <h3>Gestión de activos</h3>
+                <div class="icono">💻</div>
 
-                    <p>
-                        Administre computadoras, impresoras y otros equipos.
-                    </p>
+                <h3>Gestión de activos</h3>
 
-                    <span>Administrar activos</span>
+                <p>
+                    Administre computadoras, impresoras y otros equipos.
+                </p>
 
-                </a>
+                <span>Administrar activos</span>
 
-                        <a href="tickets/consultatickets.php" class="tarjeta">
+            </a>
 
-                    <div class="icono">🎫</div>
+            <a href="tickets/consultatickets.php" class="tarjeta">
 
-                    <h3>Todos los tickets</h3>
+                <div class="icono">🎫</div>
 
-                    <p>
-                        Consulte los problemas registrados por los usuarios.
-                    </p>
+                <h3>Todos los tickets</h3>
 
-                    <span>Ver tickets</span>
+                <p>
+                    Consulte los problemas registrados por los usuarios.
+                </p>
 
-                </a>
+                <span>Ver tickets</span>
+
+            </a>
 
             <a href="solicitudes/consultasolicitudes.php" class="tarjeta">
 

@@ -26,7 +26,7 @@ $resultado = mysqli_query($conexion, $consulta);
         <h1>Covasg</h1>
 
         <nav>
-            <a href="administrador.html">Inicio</a>
+            <a href="administrador.php">Inicio</a>
             <a href="usuarios.html">Usuarios</a>
             <a href="activos/consultaactivos.php">Activos</a>
             <a href="tickets/consultatickets.php">Tickets</a>

@@ -30,7 +30,7 @@ $resultado = mysqli_query($conexion, $consulta);
     <h1>Covasg</h1>
 
     <nav>
-        <a href="tecnicos.html">Inicio</a>
+        <a href="tecnicos.php">Inicio</a>
         <a href="tickets.php">Tickets</a>
         <a href="solicitudes.php">Solicitudes</a>
         <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
