@@ -21,6 +21,8 @@ $resultadoRoles = mysqli_query($conexion, $consultaRoles);
     <title>Alta de usuario - Covasg</title>
 
     <link rel="stylesheet" href="css/altausuario.css">
+        <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

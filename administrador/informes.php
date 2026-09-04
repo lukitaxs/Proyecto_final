@@ -27,6 +27,7 @@ $tickets = mysqli_fetch_array($resultado);
     <meta charset="UTF-8">
     <title>Informes - Covasg</title>
     <link rel="stylesheet" href="css/estiloinformes.css">
+        <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
 </head>
 
 <body>

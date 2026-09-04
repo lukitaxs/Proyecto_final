@@ -184,11 +184,6 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
             </div>
 
-            <p class="aviso">
-                Los números son de ejemplo. Más adelante se cargarán
-                automáticamente desde la base de datos.
-            </p>
-
         </section>
 
     </main>

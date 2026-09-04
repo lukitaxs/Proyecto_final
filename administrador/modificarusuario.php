@@ -30,7 +30,7 @@ $resultadoRoles = mysqli_query($conexion, $consultaRoles);
           content="width=device-width, initial-scale=1.0">
 
     <title>Modificar usuario - Covasg</title>
-
+        <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
     <link rel="stylesheet" href="css/altausuario.css">
 
 </head>

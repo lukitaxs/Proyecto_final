@@ -20,6 +20,7 @@ $resultado = mysqli_query($conexion, $consulta);
  
     <title>Consulta de tickets - Covasg</title> 
     <link rel="stylesheet" href="../css/consultausuarios.css"> 
+        <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
 </head> 
  
 <body> 
