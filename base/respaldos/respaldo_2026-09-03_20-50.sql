@@ -35,7 +35,7 @@ CREATE TABLE `activo_tecnologico` (
   PRIMARY KEY (`id_activo`),
   UNIQUE KEY `numero_serie` (`numero_serie`),
   UNIQUE KEY `codigo_inventario` (`codigo_inventario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `activo_tecnologico` (
 
 LOCK TABLES `activo_tecnologico` WRITE;
 /*!40000 ALTER TABLE `activo_tecnologico` DISABLE KEYS */;
-INSERT INTO `activo_tecnologico` VALUES (2,'Laptop','En reparación','test01','dell','laptop','it-001','salon 1','disponible');
+INSERT INTO `activo_tecnologico` VALUES (9,'Monitor','En reparación','test01','Samsung','Odyssey G3','it-001','ceibal','pantalla rota');
 /*!40000 ALTER TABLE `activo_tecnologico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,6 +111,58 @@ CREATE TABLE `intervencion_diagnostico` (
 LOCK TABLES `intervencion_diagnostico` WRITE;
 /*!40000 ALTER TABLE `intervencion_diagnostico` DISABLE KEYS */;
 /*!40000 ALTER TABLE `intervencion_diagnostico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `marca`
+--
+
+DROP TABLE IF EXISTS `marca`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `marca` (
+  `id_marca` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_marca` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_marca`),
+  UNIQUE KEY `nombre_marca` (`nombre_marca`)
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `marca`
+--
+
+LOCK TABLES `marca` WRITE;
+/*!40000 ALTER TABLE `marca` DISABLE KEYS */;
+INSERT INTO `marca` VALUES (4,'Acer'),(9,'AOC'),(6,'Apple'),(5,'ASUS'),(13,'Brother'),(14,'Canon'),(3,'Dell'),(17,'Desconocida'),(12,'Epson'),(16,'Genius'),(1,'HP'),(2,'Lenovo'),(8,'LG'),(15,'Logitech'),(11,'Philips'),(7,'Samsung'),(10,'ViewSonic');
+/*!40000 ALTER TABLE `marca` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `modelo`
+--
+
+DROP TABLE IF EXISTS `modelo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `modelo` (
+  `id_modelo` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre_modelo` varchar(50) NOT NULL,
+  `id_marca` int(11) NOT NULL,
+  PRIMARY KEY (`id_modelo`),
+  KEY `id_marca` (`id_marca`),
+  CONSTRAINT `modelo_ibfk_1` FOREIGN KEY (`id_marca`) REFERENCES `marca` (`id_marca`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `modelo`
+--
+
+LOCK TABLES `modelo` WRITE;
+/*!40000 ALTER TABLE `modelo` DISABLE KEYS */;
+INSERT INTO `modelo` VALUES (1,'Pavilion',1),(2,'ThinkPad',2),(3,'Inspiron',3),(4,'Aspire',4),(5,'VivoBook',5),(6,'MacBook Air',6),(7,'ProBook',1),(8,'EliteBook',1),(9,'ProDesk',1),(10,'IdeaPad',2),(11,'ThinkCentre',2),(12,'Latitude',3),(13,'OptiPlex',3),(14,'Veriton',4),(15,'ExpertBook',5),(16,'MacBook Pro',6),(17,'iMac',6),(18,'Odyssey G3',7),(19,'Essential Monitor',7),(20,'UltraGear',8),(21,'UltraWide',8),(22,'Serie B2',9),(23,'Serie G2',9),(24,'VA Series',10),(25,'VX Series',10),(26,'Serie V',11),(27,'EcoTank',12),(28,'WorkForce',12),(29,'HL Series',13),(30,'DCP Series',13),(31,'PIXMA',14),(32,'imageCLASS',14),(33,'Desconocido',15),(34,'Desconocido',16),(35,'Desconocido',17);
+/*!40000 ALTER TABLE `modelo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -186,7 +238,7 @@ CREATE TABLE `tecnico` (
   PRIMARY KEY (`id_tecnico`),
   KEY `fk_tecnico_usuario` (`id_usuario`),
   CONSTRAINT `fk_tecnico_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -195,7 +247,7 @@ CREATE TABLE `tecnico` (
 
 LOCK TABLES `tecnico` WRITE;
 /*!40000 ALTER TABLE `tecnico` DISABLE KEYS */;
-INSERT INTO `tecnico` VALUES (2,5,'Técnico de soporte','Hardware','Soporte a usuarios');
+INSERT INTO `tecnico` VALUES (2,5,'Técnico de mantenimiento','Software','Reparación de equipos');
 /*!40000 ALTER TABLE `tecnico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -218,7 +270,7 @@ CREATE TABLE `ticket` (
   PRIMARY KEY (`id_ticket`),
   KEY `fk_ticket_usuario` (`id_usuario`),
   CONSTRAINT `fk_ticket_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -227,7 +279,7 @@ CREATE TABLE `ticket` (
 
 LOCK TABLES `ticket` WRITE;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;
-INSERT INTO `ticket` VALUES (6,5,'no lee disco','no enciende','alta','En proceso','2026-08-29 13:38:00',NULL);
+INSERT INTO `ticket` VALUES (6,5,'no lee disco','no enciende','alta','Cerrado','2026-08-29 13:38:00','2026-09-03 00:58:32'),(7,14,'la computadora no enciende','no enciende','alta','Cerrado','2026-09-03 01:01:15','2026-09-03 01:03:10');
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,7 +331,7 @@ CREATE TABLE `usuario` (
   UNIQUE KEY `correo` (`correo`),
   KEY `fk_usuario_rol` (`id_rol`),
   CONSTRAINT `fk_usuario_rol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id_rol`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -288,7 +340,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (5,1,'sofi','lukinhasnuevo2007@gmail.com','$2y$10$AhQLc0.1pWeVS2OUNPE1kOWsD1.ajATfPTwpYUtMhm3lbkmppEY4y'),(8,2,'lucas','lucaassxs16@gmail.com','$2y$10$tsK1Ly1ND5DV05x.PkyhgunSWh3rlZhAD.T55nFPbrAmkrkEbzWPa'),(11,1,'facundo','facundovega@gmail.com','$2y$10$T121pqp2HAYZaPsOYFqwruKhTxG8DQxhxLehq.x0mUFN55I7PkJTK'),(12,3,'admin','admin@gmail.com','$2y$10$Dvr4xpWDuPkCGDQz3X2eeOjjKW1Fc1IgPupfG/yABIMVYgl56l5NW');
+INSERT INTO `usuario` VALUES (5,3,'sofi','lukinhasnuevo2007@gmail.com','$2y$10$AhQLc0.1pWeVS2OUNPE1kOWsD1.ajATfPTwpYUtMhm3lbkmppEY4y'),(14,1,'lucas','lucaassxs@gmail.com','$2y$10$e5IDfiEDV.mNKFXH7/toP.J5DzeEN7jQ8IB/QY1RD2rOyjTGlbHyS'),(15,2,'tecnico1','tecnico@gmail.com','$2y$10$3ESGT0UZ64vVdui0VXcfnu1Hkzo7otAu.rxgKUqpyUkRUIYJnAWJy'),(16,3,'administrador','administrado2@gmail.com','$2y$10$gQ5PjPq7OH8hHa/NT0g10edzmpiCPE8mItBlX1O9I/Q8NguWXLVwm');
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -301,4 +353,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-09-03  0:33:53
+-- Dump completed on 2026-09-03 20:50:53

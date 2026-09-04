@@ -56,6 +56,20 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
         <section class="opciones">
 
+                <a href="activos/altaactivos.php" class="tarjeta">
+
+            <div class="icono">➕</div>
+
+            <h3>Registrar activo</h3>
+
+            <p>
+                Registre un nuevo activo tecnológico en el sistema.
+            </p>
+
+            <span>Agregar activo</span>
+
+        </a>
+
             <a href="usuarios.html" class="tarjeta">
 
                 <div class="icono">👥</div>

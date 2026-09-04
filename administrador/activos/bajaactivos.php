@@ -45,11 +45,13 @@ $resultado = mysqli_query($conexion, $consulta);
         </div>
 
         <div>
+
             <h2>Baja de activo tecnológico</h2>
 
             <p>
                 Seleccione el activo que desea eliminar del sistema.
             </p>
+
         </div>
 
     </section>
@@ -59,6 +61,7 @@ $resultado = mysqli_query($conexion, $consulta);
     if (isset($_GET["mensaje"])) {
 
         if ($_GET["mensaje"] == "ok") {
+
     ?>
 
             <div class="mensaje correcto">
@@ -107,12 +110,24 @@ $resultado = mysqli_query($conexion, $consulta);
 
                     ?>
 
-                        <option value="<?php echo $activo["id_activo"]; ?>">
+                        <option
+                            value="<?php echo $activo["id_activo"]; ?>"
 
                             <?php
+
+                            if (isset($_GET["id"]) && $_GET["id"] == $activo["id_activo"]) {
+                                echo "selected";
+                            }
+
+                            ?>
+                        >
+
+                            <?php
+
                             echo $activo["marca"] . " " .
                                  $activo["modelo"] . " - " .
                                  $activo["codigo_inventario"];
+
                             ?>
 
                         </option>

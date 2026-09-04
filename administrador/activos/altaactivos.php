@@ -1,3 +1,15 @@
+<?php
+
+include("../../php/conexion.php");
+
+$consulta_marcas = "SELECT * FROM Marca";
+$resultado_marcas = mysqli_query($conexion, $consulta_marcas);
+
+$consulta_modelos = "SELECT * FROM Modelo";
+$resultado_modelos = mysqli_query($conexion, $consulta_modelos);
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -78,32 +90,85 @@
             <div class="campos">
 
                 <div class="campo">
-                    <label for="tipo_dispositivo">Tipo de dispositivo</label>
 
-                    <select name="tipo_dispositivo" id="tipo_dispositivo" required>
-                        <option value="">Seleccione un tipo</option>
-                        <option value="Laptop">Laptop</option>
-                        <option value="PC">PC</option>
-                        <option value="Monitor">Monitor</option>
-                        <option value="Impresora">Impresora</option>
-                        <option value="Otro">Otro</option>
+                    <label for="tipo_dispositivo">
+                        Tipo de dispositivo
+                    </label>
+
+                    <select
+                        name="tipo_dispositivo"
+                        id="tipo_dispositivo"
+                        required
+                    >
+                        <option value="">
+                            Seleccione un tipo
+                        </option>
+
+                        <option value="Laptop">
+                            Laptop
+                        </option>
+
+                        <option value="PC">
+                            PC
+                        </option>
+
+                        <option value="Monitor">
+                            Monitor
+                        </option>
+
+                        <option value="Impresora">
+                            Impresora
+                        </option>
+
+                        <option value="Otro">
+                            Otro
+                        </option>
+
                     </select>
+
                 </div>
 
                 <div class="campo">
-                    <label for="estado_actual">Estado actual</label>
 
-                    <select name="estado_actual" id="estado_actual" required>
-                        <option value="">Seleccione un estado</option>
-                        <option value="Disponible">Disponible</option>
-                        <option value="En uso">En uso</option>
-                        <option value="En reparación">En reparación</option>
-                        <option value="Fuera de servicio">Fuera de servicio</option>
+                    <label for="estado_actual">
+                        Estado actual
+                    </label>
+
+                    <select
+                        name="estado_actual"
+                        id="estado_actual"
+                        required
+                    >
+
+                        <option value="">
+                            Seleccione un estado
+                        </option>
+
+                        <option value="Disponible">
+                            Disponible
+                        </option>
+
+                        <option value="En uso">
+                            En uso
+                        </option>
+
+                        <option value="En reparación">
+                            En reparación
+                        </option>
+
+                        <option value="Fuera de servicio">
+                            Fuera de servicio
+                        </option>
+
                     </select>
+
                 </div>
 
                 <div class="campo">
-                    <label for="numero_serie">Número de serie</label>
+
+                    <label for="numero_serie">
+                        Número de serie
+                    </label>
 
                     <input
                         type="text"
@@ -111,32 +176,90 @@
                         id="numero_serie"
                         placeholder="Ej: SN123456"
                     >
+
                 </div>
 
                 <div class="campo">
-                    <label for="marca">Marca</label>
 
-                    <input
-                        type="text"
+                    <label for="marca">
+                        Marca
+                    </label>
+
+                    <select
                         name="marca"
                         id="marca"
-                        placeholder="Ej: Dell"
+                        required
                     >
+
+                        <option value="">
+                            Seleccione una marca
+                        </option>
+
+                        <?php
+
+                        while ($marca = mysqli_fetch_array($resultado_marcas)) {
+
+                        ?>
+
+                            <option value="<?php echo $marca["nombre_marca"]; ?>">
+
+                                <?php echo $marca["nombre_marca"]; ?>
+
+                            </option>
+
+                        <?php
+
+                        }
+
+                        ?>
+
+                    </select>
+
                 </div>
 
                 <div class="campo">
-                    <label for="modelo">Modelo</label>
 
-                    <input
-                        type="text"
+                    <label for="modelo">
+                        Modelo
+                    </label>
+
+                    <select
                         name="modelo"
                         id="modelo"
-                        placeholder="Ej: Latitude 5420"
+                        required
                     >
+
+                        <option value="">
+                            Seleccione un modelo
+                        </option>
+
+                        <?php
+
+                        while ($modelo = mysqli_fetch_array($resultado_modelos)) {
+
+                        ?>
+
+                            <option value="<?php echo $modelo["nombre_modelo"]; ?>">
+
+                                <?php echo $modelo["nombre_modelo"]; ?>
+
+                            </option>
+
+                        <?php
+
+                        }
+
+                        ?>
+
+                    </select>
+
                 </div>
 
                 <div class="campo">
-                    <label for="codigo_inventario">Código de inventario</label>
+
+                    <label for="codigo_inventario">
+                        Código de inventario
+                    </label>
 
                     <input
                         type="text"
@@ -144,10 +267,14 @@
                         id="codigo_inventario"
                         placeholder="Ej: IT-001"
                     >
+
                 </div>
 
                 <div class="campo">
-                    <label for="ubicacion_fisica">Ubicación física</label>
+
+                    <label for="ubicacion_fisica">
+                        Ubicación física
+                    </label>
 
                     <input
                         type="text"
@@ -155,10 +282,14 @@
                         id="ubicacion_fisica"
                         placeholder="Ej: Oficina 2"
                     >
+
                 </div>
 
                 <div class="campo">
-                    <label for="observaciones">Observaciones</label>
+
+                    <label for="observaciones">
+                        Observaciones
+                    </label>
 
                     <input
                         type="text"
@@ -166,6 +297,7 @@
                         id="observaciones"
                         placeholder="Observaciones del activo"
                     >
+
                 </div>
 
             </div>
@@ -183,11 +315,17 @@
 
             <div class="botones">
 
-                <a href="consultaactivos.php" class="boton cancelar">
+                <a
+                    href="consultaactivos.php"
+                    class="boton cancelar"
+                >
                     Cancelar
                 </a>
 
-                <button type="submit" class="boton guardar">
+                <button
+                    type="submit"
+                    class="boton guardar"
+                >
                     Registrar activo
                 </button>
 
@@ -200,7 +338,11 @@
 </main>
 
 <footer>
-    <p>© 2026 Covasg - Sistema de soporte informático.</p>
+
+    <p>
+        © 2026 Covasg - Sistema de soporte informático.
+    </p>
+
 </footer>
 
 </body>

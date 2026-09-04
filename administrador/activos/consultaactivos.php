@@ -119,6 +119,12 @@ $resultado = mysqli_query($conexion, $consulta);
                                 Modificar
                             </a>
 
+                            |
+
+                            <a href="bajaactivos.php?id=<?php echo $activo["id_activo"]; ?>">
+                                Eliminar
+                            </a>
+
                         </td>
 
                     </tr>

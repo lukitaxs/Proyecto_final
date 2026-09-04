@@ -11,6 +11,18 @@ $resultado = mysqli_query($conexion, $consulta);
 
 $activo = mysqli_fetch_array($resultado);
 
+
+/* Consultar marcas */
+
+$consulta_marcas = "SELECT * FROM Marca";
+$resultado_marcas = mysqli_query($conexion, $consulta_marcas);
+
+
+/* Consultar modelos */
+
+$consulta_modelos = "SELECT * FROM Modelo";
+$resultado_modelos = mysqli_query($conexion, $consulta_modelos);
+
 ?>
 
 <!DOCTYPE html>
@@ -88,21 +100,59 @@ $activo = mysqli_fetch_array($resultado);
 
             </div>
 
+
+            <!-- MARCA -->
+
             <div class="campo">
 
                 <label for="marca">
                     Marca
                 </label>
 
-                <input
-                    type="text"
-                    id="marca"
+                <select
                     name="marca"
-                    value="<?php echo $activo["marca"]; ?>"
+                    id="marca"
                     required
                 >
 
+                    <option value="">
+                        Seleccione una marca
+                    </option>
+
+                    <?php
+
+                    while ($marca = mysqli_fetch_array($resultado_marcas)) {
+
+                    ?>
+
+                        <option
+                            value="<?php echo $marca["nombre_marca"]; ?>"
+
+                            <?php
+
+                            if ($activo["marca"] == $marca["nombre_marca"]) {
+                                echo "selected";
+                            }
+
+                            ?>
+                        >
+
+                            <?php echo $marca["nombre_marca"]; ?>
+
+                        </option>
+
+                    <?php
+
+                    }
+
+                    ?>
+
+                </select>
+
             </div>
+
+
+            <!-- MODELO -->
 
             <div class="campo">
 
@@ -110,15 +160,50 @@ $activo = mysqli_fetch_array($resultado);
                     Modelo
                 </label>
 
-                <input
-                    type="text"
-                    id="modelo"
+                <select
                     name="modelo"
-                    value="<?php echo $activo["modelo"]; ?>"
+                    id="modelo"
                     required
                 >
 
+                    <option value="">
+                        Seleccione un modelo
+                    </option>
+
+                    <?php
+
+                    while ($modelo = mysqli_fetch_array($resultado_modelos)) {
+
+                    ?>
+
+                        <option
+                            value="<?php echo $modelo["nombre_modelo"]; ?>"
+
+                            <?php
+
+                            if ($activo["modelo"] == $modelo["nombre_modelo"]) {
+                                echo "selected";
+                            }
+
+                            ?>
+                        >
+
+                            <?php echo $modelo["nombre_modelo"]; ?>
+
+                        </option>
+
+                    <?php
+
+                    }
+
+                    ?>
+
+                </select>
+
             </div>
+
+
+            <!-- CÓDIGO INVENTARIO -->
 
             <div class="campo">
 
@@ -136,21 +221,59 @@ $activo = mysqli_fetch_array($resultado);
 
             </div>
 
+
+            <!-- ESTADO -->
+
             <div class="campo">
 
                 <label for="estado_actual">
                     Estado actual
                 </label>
 
-                <input
-                    type="text"
-                    id="estado_actual"
+                <select
                     name="estado_actual"
-                    value="<?php echo $activo["estado_actual"]; ?>"
+                    id="estado_actual"
                     required
                 >
 
+                    <option value="">
+                        Seleccione un estado
+                    </option>
+
+                    <option
+                        value="Disponible"
+                        <?php if ($activo["estado_actual"] == "Disponible") echo "selected"; ?>
+                    >
+                        Disponible
+                    </option>
+
+                    <option
+                        value="En uso"
+                        <?php if ($activo["estado_actual"] == "En uso") echo "selected"; ?>
+                    >
+                        En uso
+                    </option>
+
+                    <option
+                        value="En reparación"
+                        <?php if ($activo["estado_actual"] == "En reparación") echo "selected"; ?>
+                    >
+                        En reparación
+                    </option>
+
+                    <option
+                        value="Fuera de servicio"
+                        <?php if ($activo["estado_actual"] == "Fuera de servicio") echo "selected"; ?>
+                    >
+                        Fuera de servicio
+                    </option>
+
+                </select>
+
             </div>
+
+
+            <!-- UBICACIÓN -->
 
             <div class="campo">
 
@@ -167,6 +290,7 @@ $activo = mysqli_fetch_array($resultado);
                 >
 
             </div>
+
 
             <div class="botones">
 
