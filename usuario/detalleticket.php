@@ -31,7 +31,7 @@ $ticket = mysqli_fetch_assoc($resultado);
     <h1>Covasg</h1>
 
     <nav>
-        <a href="usuario.html">Inicio</a>
+        <a href="usuario.php">Inicio</a>
         <a href="ticket.html">Crear ticket</a>
         <a href="misticket.php">Mis tickets</a>
         <a href="crearsolicitud.html">Solicitudes</a>

@@ -18,6 +18,31 @@ $consulta = "SELECT COUNT(*) AS total FROM ticket";
 $resultado = mysqli_query($conexion, $consulta);
 $tickets = mysqli_fetch_array($resultado);
 
+// Tickets 
+$sql = "SELECT estado, COUNT(*) AS total FROM ticket GROUP BY estado";
+$resultado = mysqli_query($conexion, $sql);
+
+$estadosTickets = [];
+$cantidadesTickets = [];
+
+while ($fila = mysqli_fetch_assoc($resultado)) {
+    $estadosTickets[] = $fila["estado"];
+    $cantidadesTickets[] = $fila["total"];
+}
+
+// Solicitudes 
+$sql = "SELECT estado, COUNT(*) AS total FROM solicitud GROUP BY estado";
+$resultado = mysqli_query($conexion, $sql);
+
+$estadosSolicitudes = [];
+$cantidadesSolicitudes = [];
+
+while ($fila = mysqli_fetch_assoc($resultado)) {
+    $estadosSolicitudes[] = $fila["estado"];
+    $cantidadesSolicitudes[] = $fila["total"];
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +53,7 @@ $tickets = mysqli_fetch_array($resultado);
     <title>Informes - Covasg</title>
     <link rel="stylesheet" href="css/estiloinformes.css">
         <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -78,6 +104,72 @@ $tickets = mysqli_fetch_array($resultado);
         </div>
 
     </div>
+
+        <div class="seccion">
+            <h2>Tickets por estado</h2>
+            <div class="contenedor-grafico">
+                <canvas id="graficoTickets"></canvas>
+            </div>
+        </div>
+
+        <div class="seccion">
+            <h2>Solicitudes por estado</h2>
+            <div class="contenedor-grafico">
+                <canvas id="graficoSolicitudes"></canvas>
+            </div>
+        </div>
+
+            
+        <script>
+        // Datos de los tickets
+        const estadosTickets = <?php echo json_encode($estadosTickets); ?>;
+        const cantidadesTickets = <?php echo json_encode($cantidadesTickets); ?>;
+
+        // Gráfico de tickets
+        new Chart(document.getElementById("graficoTickets"), {
+            type: "bar",
+            data: {
+                labels: estadosTickets,
+                datasets: [{
+                    label: "Cantidad de tickets",
+                    data: cantidadesTickets,
+                    backgroundColor: "#8b5cf6"
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                }
+            }
+        });
+
+        // Datos de las solicitudes
+        const estadosSolicitudes = <?php echo json_encode($estadosSolicitudes); ?>;
+        const cantidadesSolicitudes = <?php echo json_encode($cantidadesSolicitudes); ?>;
+
+        // Gráfico de solicitudes
+        new Chart(document.getElementById("graficoSolicitudes"), {
+            type: "pie",
+            data: {
+                labels: estadosSolicitudes,
+                datasets: [{
+                    data: cantidadesSolicitudes,
+                    backgroundColor: ["#8b5cf6", "#4b006e", "#c084fc", "#a78bfa"]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+        </script>
 
 </main>
 
