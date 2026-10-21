@@ -1,8 +1,34 @@
 <?php
 
+session_start();
+
+// Verificar que haya iniciado sesión como administrador
+if (
+    !isset($_SESSION["id_usuario"]) ||
+    !isset($_SESSION["id_rol"]) ||
+    $_SESSION["id_rol"] != 3
+) {
+    header("Location: ../login/login.php");
+    exit();
+}
+
 include("conexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    // Verificar que se hayan recibido todos los datos
+    if (
+        !isset($_POST["id_tecnico"]) ||
+        !isset($_POST["id_usuario"]) ||
+        !isset($_POST["rol"]) ||
+        !isset($_POST["area"]) ||
+        !isset($_POST["especialidad"]) ||
+        !is_numeric($_POST["id_tecnico"]) ||
+        !is_numeric($_POST["id_usuario"])
+    ) {
+        header("Location: ../administrador/tecnico/consultatecnicos.php");
+        exit();
+    }
 
     $id_tecnico = $_POST["id_tecnico"];
     $id_usuario = $_POST["id_usuario"];
@@ -22,12 +48,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado) {
 
         header("Location: ../administrador/tecnico/consultatecnicos.php");
+        exit();
 
     } else {
 
         echo "Error al modificar el técnico: " . mysqli_error($conexion);
 
     }
+
+} else {
+
+    header("Location: ../administrador/tecnico/consultatecnicos.php");
+    exit();
 
 }
 

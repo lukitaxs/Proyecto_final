@@ -24,6 +24,8 @@ $resultado = mysqli_query($conexion, $consulta);
     <title>Mis solicitudes - Covasg</title>
 
     <link rel="stylesheet" href="cssusuario/estilomissolicitudes.css">
+    <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

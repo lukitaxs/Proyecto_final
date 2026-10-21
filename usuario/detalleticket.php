@@ -22,6 +22,8 @@ $ticket = mysqli_fetch_assoc($resultado);
     <title>Detalle del ticket - Covasg</title>
 
     <link rel="stylesheet" href="cssusuario/estilodetalleticket.css">
+    <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

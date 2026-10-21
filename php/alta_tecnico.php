@@ -1,5 +1,17 @@
 <?php
 
+session_start();
+
+// Verificar que haya iniciado sesión como administrador
+if (
+    !isset($_SESSION["id_usuario"]) ||
+    !isset($_SESSION["id_rol"]) ||
+    $_SESSION["id_rol"] != 3
+) {
+    header("Location: ../login/login.php");
+    exit();
+}
+
 include("conexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,6 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado) {
 
         header("Location: ../administrador/tecnico/consultatecnicos.php");
+        exit();
 
     } else {
 

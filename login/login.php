@@ -8,6 +8,8 @@
     <title>Iniciar sesión - Covasg</title>
 
     <link rel="stylesheet" href="../css/estilologin.css">
+    <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

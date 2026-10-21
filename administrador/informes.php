@@ -1,6 +1,15 @@
 <?php
 
+session_start();
+
+// Verificar que haya iniciado sesión como administrador
+if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
+    header("Location: ../login/login.php");
+    exit();
+}
+
 include("../php/conexion.php");
+
 
 $consulta = "SELECT COUNT(*) AS total FROM usuario";
 $resultado = mysqli_query($conexion, $consulta);

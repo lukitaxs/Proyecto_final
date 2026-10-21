@@ -1,13 +1,31 @@
 <?php
 
+session_start();
+
+// Verificar que haya iniciado sesión como administrador
+if (!isset($_SESSION["id_usuario"]) || !isset($_SESSION["id_rol"]) || $_SESSION["id_rol"] != 3) {
+    header("Location: ../../login/login.php");
+    exit();
+}
+
 include("../../php/conexion.php");
 
-$id_activo = $_GET["id"];
+if (!isset($_GET["id"]) || !is_numeric($_GET["id"])) {
+    header("Location: consultaactivos.php");
+    exit();
+}
+
+$id_activo = (int) $_GET["id"];
 
 $consulta = "SELECT * FROM activo_tecnologico
              WHERE id_activo = '$id_activo'";
 
 $resultado = mysqli_query($conexion, $consulta);
+
+if (!$resultado || mysqli_num_rows($resultado) == 0) {
+    header("Location: consultaactivos.php");
+    exit();
+}
 
 $activo = mysqli_fetch_array($resultado);
 

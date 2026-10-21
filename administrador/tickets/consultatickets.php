@@ -1,7 +1,14 @@
-<?php 
- 
-include("../../php/conexion.php"); 
- 
+<?php
+
+session_start();
+
+if (!isset($_SESSION["id_usuario"]) || !isset($_SESSION["id_rol"]) || $_SESSION["id_rol"] != 3) {
+    header("Location: ../../login/login.php");
+    exit();
+}
+
+include("../../php/conexion.php");
+
 $consulta = "SELECT ticket.*, usuario.nombre 
              FROM ticket 
              INNER JOIN usuario 
