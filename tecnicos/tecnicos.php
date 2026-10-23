@@ -30,10 +30,15 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 2) {
     <h1>Covasg</h1>
 
     <nav>
-        <a href="tecnicos.php">Inicio</a>
-        <a href="tickets.php">Tickets</a>
-        <a href="solicitudes.php">Solicitudes</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="tecnicos.php" data-traducir="inicio">Inicio</a>
+        <a href="tickets.php" data-traducir="tickets">Tickets</a>
+        <a href="solicitudes.php" data-traducir="solicitudes">Solicitudes</a>
+        <a href="../php/cerrarsesion.php" class="cerrar-sesion" data-traducir="cerrarSesion">Cerrar sesión</a>
+
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>
     </nav>
 
 </header>
@@ -42,35 +47,33 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 2) {
 
     <div class="bienvenida">
 
-        <h2>Panel del Técnico</h2>
+        <h2 data-traducir="panelTecnico">Panel del Técnico</h2>
 
-        <p>
+        <p data-traducir="descripcionPanelTecnico">
             Desde este panel puedes consultar y gestionar
             los tickets y solicitudes del sistema.
         </p>
 
     </div>
 
-
     <div class="tarjetas">
 
         <a href="tickets.php" class="tarjeta">
 
-            <h3>Tickets</h3>
+            <h3 data-traducir="tickets">Tickets</h3>
 
-            <p>
+            <p data-traducir="descripcionTicketsTecnico">
                 Consultar los tickets registrados
                 y actualizar su estado.
             </p>
 
         </a>
 
-
         <a href="solicitudes.php" class="tarjeta">
 
-            <h3>Solicitudes</h3>
+            <h3 data-traducir="solicitudes">Solicitudes</h3>
 
-            <p>
+            <p data-traducir="descripcionSolicitudesTecnico">
                 Consultar las solicitudes registradas
                 y actualizar su estado.
             </p>
@@ -81,12 +84,13 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 2) {
 
 </main>
 
-
 <footer>
 
-    <p>© 2026 Covasg - Sistema de Gestión de Soporte</p>
+    <p data-traducir="pieTecnico">© 2026 Covasg - Sistema de Gestión de Soporte</p>
 
 </footer>
+
+<script src="/Proyecto_final/js/traductor.js"></script>
 
 </body>
 

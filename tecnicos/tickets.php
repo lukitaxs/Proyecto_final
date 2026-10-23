@@ -30,10 +30,15 @@ $resultado = mysqli_query($conexion, $consulta);
     <h1>Covasg</h1>
 
     <nav>
-        <a href="tecnicos.php">Inicio</a>
-        <a href="tickets.php">Tickets</a>
-        <a href="solicitudes.php">Solicitudes</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="tecnicos.php" data-traducir="inicio">Inicio</a>
+        <a href="tickets.php" data-traducir="tickets">Tickets</a>
+        <a href="solicitudes.php" data-traducir="solicitudes">Solicitudes</a>
+        <a href="../php/cerrarsesion.php" class="cerrar-sesion" data-traducir="cerrarSesion">Cerrar sesión</a>
+
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>
     </nav>
 
 </header>
@@ -42,9 +47,9 @@ $resultado = mysqli_query($conexion, $consulta);
 
     <div class="bienvenida">
 
-        <h2>Tickets</h2>
+        <h2 data-traducir="tickets">Tickets</h2>
 
-        <p>
+        <p data-traducir="descripcionListaTickets">
             Consulta los tickets registrados en el sistema.
         </p>
 
@@ -55,12 +60,12 @@ $resultado = mysqli_query($conexion, $consulta);
         <table>
 
             <tr>
-                <th>ID</th>
-                <th>Usuario</th>
-                <th>Título</th>
-                <th>Prioridad</th>
-                <th>Estado</th>
-                <th>Acción</th>
+                <th data-traducir="id">ID</th>
+                <th data-traducir="usuario">Usuario</th>
+                <th data-traducir="titulo">Título</th>
+                <th data-traducir="prioridad">Prioridad</th>
+                <th data-traducir="estado">Estado</th>
+                <th data-traducir="accion">Acción</th>
             </tr>
 
             <?php while ($ticket = mysqli_fetch_array($resultado)) { ?>
@@ -78,7 +83,7 @@ $resultado = mysqli_query($conexion, $consulta);
                     <td><?php echo $ticket["estado"]; ?></td>
 
                     <td>
-                        <a href="detalleticket.php?id=<?php echo $ticket["id_ticket"]; ?>">
+                        <a href="detalleticket.php?id=<?php echo $ticket["id_ticket"]; ?>" data-traducir="ver">
                             Ver
                         </a>
                     </td>
@@ -94,8 +99,10 @@ $resultado = mysqli_query($conexion, $consulta);
 </main>
 
 <footer>
-    <p>© 2026 Covasg - Sistema de Gestión de Soporte</p>
+    <p data-traducir="pieTecnico">© 2026 Covasg - Sistema de Gestión de Soporte</p>
 </footer>
+
+<script src="/Proyecto_final/js/traductor.js"></script>
 
 </body>
 

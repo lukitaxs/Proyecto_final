@@ -30,10 +30,15 @@ $resultado = mysqli_query($conexion, $consulta);
     <h1>Covasg</h1>
 
     <nav>
-        <a href="tecnicos.php">Inicio</a>
-        <a href="tickets.php">Tickets</a>
-        <a href="solicitudes.php">Solicitudes</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="tecnicos.php" data-traducir="inicio">Inicio</a>
+        <a href="tickets.php" data-traducir="tickets">Tickets</a>
+        <a href="solicitudes.php" data-traducir="solicitudes">Solicitudes</a>
+        <a href="../php/cerrarsesion.php" class="cerrar-sesion" data-traducir="cerrarSesion">Cerrar sesión</a>
+
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>
     </nav>
 
 </header>
@@ -42,9 +47,11 @@ $resultado = mysqli_query($conexion, $consulta);
 
     <div class="bienvenida">
 
-        <h2>Solicitudes</h2>
+        <h2 data-traducir="solicitudes">Solicitudes</h2>
 
-        <p>Consulta las solicitudes registradas en el sistema.</p>
+        <p data-traducir="descripcionListaSolicitudes">
+            Consulta las solicitudes registradas en el sistema.
+        </p>
 
     </div>
 
@@ -53,33 +60,26 @@ $resultado = mysqli_query($conexion, $consulta);
         <table>
 
             <tr>
-                <th>ID</th>
-                <th>Usuario</th>
-                <th>Título</th>
-                <th>Tipo</th>
-                <th>Prioridad</th>
-                <th>Estado</th>
-                <th>Acción</th>
+                <th data-traducir="id">ID</th>
+                <th data-traducir="usuario">Usuario</th>
+                <th data-traducir="titulo">Título</th>
+                <th data-traducir="tipo">Tipo</th>
+                <th data-traducir="prioridad">Prioridad</th>
+                <th data-traducir="estado">Estado</th>
+                <th data-traducir="accion">Acción</th>
             </tr>
 
             <?php while ($solicitud = mysqli_fetch_array($resultado)) { ?>
 
                 <tr>
-
-                    <td><?php echo $solicitud["id_solicitud"]; ?></td>
-
-                    <td><?php echo $solicitud["nombre"]; ?></td>
-
-                    <td><?php echo $solicitud["titulo"]; ?></td>
-
-                    <td><?php echo $solicitud["tipo"]; ?></td>
-
-                    <td><?php echo $solicitud["prioridad"]; ?></td>
-
-                    <td><?php echo $solicitud["estado"]; ?></td>
-
-                    <td>
-                        <a href="detallesolicitud.php?id=<?php echo $solicitud["id_solicitud"]; ?>">
+                <td><?php echo $solicitud["id_solicitud"]; ?></td>
+                <td><?php echo $solicitud["nombre"]; ?></td>
+                <td><?php echo $solicitud["titulo"]; ?></td>
+                <td><?php echo $solicitud["tipo"]; ?></td>
+                <td><?php echo $solicitud["prioridad"]; ?></td>
+                <td><?php echo $solicitud["estado"]; ?></td>
+                <td>
+                    <a href="detallesolicitud.php?id=<?php echo $solicitud["id_solicitud"]; ?>" data-traducir="ver">
                             Ver
                         </a>
                     </td>
@@ -95,9 +95,9 @@ $resultado = mysqli_query($conexion, $consulta);
 </main>
 
 <footer>
-    <p>© 2026 Covasg - Sistema de Gestión de Soporte</p>
+    <p data-traducir="pieTecnico">© 2026 Covasg - Sistema de Gestión de Soporte</p>
 </footer>
 
+<script src="/Proyecto_final/js/traductor.js"></script>
 </body>
-
 </html>

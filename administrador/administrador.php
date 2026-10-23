@@ -3,10 +3,8 @@
 session_start();
 
 if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
-
     header("Location: ../login/login.php");
     exit();
-
 }
 
 ?>
@@ -20,7 +18,7 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
     <title>Panel de administrador - Covasg</title>
 
-    <link rel="stylesheet" href="../administrador/css/estiloadministrador.css">
+<link rel="stylesheet" href="/Proyecto_final/administrador/css/estiloadministrador.css?v=2">
     <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
 </head>
 
@@ -31,12 +29,17 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
         <h1>Covasg</h1>
 
         <nav>
-            <a href="administrador.php">Inicio</a>
-            <a href="usuarios.html">Usuarios</a>
-            <a href="activos/consultaactivos.php">Activos</a>
-            <a href="tickets/consultatickets.php">Tickets</a>
-            <a href="solicitudes/consultasolicitudes.php">Solicitudes</a>
-            <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+            <a href="administrador.php" data-traducir="inicio">Inicio</a>
+            <a href="usuarios.html" data-traducir="usuarios">Usuarios</a>
+            <a href="activos/consultaactivos.php" data-traducir="activos">Activos</a>
+            <a href="tickets/consultatickets.php" data-traducir="tickets">Tickets</a>
+            <a href="solicitudes/consultasolicitudes.php" data-traducir="solicitudes">Solicitudes</a>
+            <a href="../php/cerrarsesion.php" class="cerrar-sesion" data-traducir="cerrarSesion">Cerrar sesión</a>
+
+            <select onchange="cambiarIdioma(this.value)">
+                <option value="es">Español</option>
+                <option value="en">English</option>
+            </select>
         </nav>
 
     </header>
@@ -45,9 +48,9 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
         <section class="bienvenida">
 
-            <h2>Panel de administrador</h2>
+            <h2 data-traducir="panelAdministrador">Panel de administrador</h2>
 
-            <p>
+            <p data-traducir="descripcionPanel">
                 Desde este panel puede administrar los usuarios, activos,
                 tickets y solicitudes del sistema.
             </p>
@@ -56,31 +59,31 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
         <section class="opciones">
 
-                <a href="activos/altaactivos.php" class="tarjeta">
+            <a href="activos/altaactivos.php" class="tarjeta">
 
-            <div class="icono">➕</div>
+                <div class="icono">➕</div>
 
-            <h3>Registrar activo</h3>
+                <h3 data-traducir="registrarActivo">Registrar activo</h3>
 
-            <p>
-                Registre un nuevo activo tecnológico en el sistema.
-            </p>
+                <p data-traducir="descripcionRegistrarActivo">
+                    Registre un nuevo activo tecnológico en el sistema.
+                </p>
 
-            <span>Agregar activo</span>
+                <span data-traducir="agregarActivo">Agregar activo</span>
 
-        </a>
+            </a>
 
             <a href="usuarios.html" class="tarjeta">
 
                 <div class="icono">👥</div>
 
-                <h3>Gestión de usuarios</h3>
+                <h3 data-traducir="gestionUsuarios">Gestión de usuarios</h3>
 
-                <p>
+                <p data-traducir="descripcionUsuarios">
                     Registre, consulte y elimine usuarios del sistema.
                 </p>
 
-                <span>Administrar usuarios</span>
+                <span data-traducir="administrarUsuarios">Administrar usuarios</span>
 
             </a>
 
@@ -88,13 +91,13 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
                 <div class="icono">💻</div>
 
-                <h3>Gestión de activos</h3>
+                <h3 data-traducir="gestionActivos">Gestión de activos</h3>
 
-                <p>
+                <p data-traducir="descripcionActivos">
                     Administre computadoras, impresoras y otros equipos.
                 </p>
 
-                <span>Administrar activos</span>
+                <span data-traducir="administrarActivos">Administrar activos</span>
 
             </a>
 
@@ -102,13 +105,13 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
                 <div class="icono">🎫</div>
 
-                <h3>Todos los tickets</h3>
+                <h3 data-traducir="todosTickets">Todos los tickets</h3>
 
-                <p>
+                <p data-traducir="descripcionTickets">
                     Consulte los problemas registrados por los usuarios.
                 </p>
 
-                <span>Ver tickets</span>
+                <span data-traducir="verTickets">Ver tickets</span>
 
             </a>
 
@@ -116,13 +119,13 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
                 <div class="icono">📨</div>
 
-                <h3>Solicitudes</h3>
+                <h3 data-traducir="solicitudes">Solicitudes</h3>
 
-                <p>
+                <p data-traducir="descripcionSolicitudes">
                     Consulte las solicitudes de servicio realizadas.
                 </p>
 
-                <span>Ver solicitudes</span>
+                <span data-traducir="verSolicitudes">Ver solicitudes</span>
 
             </a>
 
@@ -130,13 +133,13 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
                 <div class="icono">🛠️</div>
 
-                <h3>Técnicos</h3>
+                <h3 data-traducir="tecnicos">Técnicos</h3>
 
-                <p>
+                <p data-traducir="descripcionTecnicos">
                     Consulte los técnicos, sus áreas y tickets asignados.
                 </p>
 
-                <span>Administrar técnicos</span>
+                <span data-traducir="administrarTecnicos">Administrar técnicos</span>
 
             </a>
 
@@ -144,13 +147,13 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
                 <div class="icono">📊</div>
 
-                <h3>Informes</h3>
+                <h3 data-traducir="informes">Informes</h3>
 
-                <p>
+                <p data-traducir="descripcionInformes">
                     Consulte estadísticas generales para tomar decisiones.
                 </p>
 
-                <span>Ver informes</span>
+                <span data-traducir="verInformes">Ver informes</span>
 
             </a>
 
@@ -158,28 +161,28 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
 
         <section class="resumen">
 
-            <h2>Resumen general</h2>
+            <h2 data-traducir="resumenGeneral">Resumen general</h2>
 
             <div class="estados">
 
                 <div class="estado">
                     <strong>12</strong>
-                    <p>Usuarios registrados</p>
+                    <p data-traducir="usuariosRegistrados">Usuarios registrados</p>
                 </div>
 
                 <div class="estado">
                     <strong>8</strong>
-                    <p>Activos tecnológicos</p>
+                    <p data-traducir="activosTecnologicos">Activos tecnológicos</p>
                 </div>
 
                 <div class="estado">
                     <strong>3</strong>
-                    <p>Tickets pendientes</p>
+                    <p data-traducir="ticketsPendientes">Tickets pendientes</p>
                 </div>
 
                 <div class="estado">
                     <strong>2</strong>
-                    <p>Solicitudes pendientes</p>
+                    <p data-traducir="solicitudesPendientes">Solicitudes pendientes</p>
                 </div>
 
             </div>
@@ -189,8 +192,10 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
     </main>
 
     <footer>
-        <p>© 2026 Covasg - Sistema de soporte informático.</p>
+        <p data-traducir="piePagina">© 2026 Covasg - Sistema de soporte informático.</p>
     </footer>
+
+    <script src="/Proyecto_final/js/traductor.js"></script>
 
 </body>
 

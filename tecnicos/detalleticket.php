@@ -45,7 +45,7 @@ $ticket = mysqli_fetch_array($resultado);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Detalle del ticket - Covasg</title>
+    <title data-traducir="detalleTicket">Detalle del ticket - Covasg</title>
 
     <link rel="stylesheet" href="css/estilotecnico.css">
 </head>
@@ -57,10 +57,15 @@ $ticket = mysqli_fetch_array($resultado);
     <h1>Covasg</h1>
 
     <nav>
-        <a href="tecnicos.php">Inicio</a>
-        <a href="tickets.php">Tickets</a>
-        <a href="solicitudes.php">Solicitudes</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="tecnicos.php" data-traducir="inicio">Inicio</a>
+        <a href="tickets.php" data-traducir="tickets">Tickets</a>
+        <a href="solicitudes.php" data-traducir="solicitudes">Solicitudes</a>
+        <a href="../php/cerrarsesion.php" class="cerrar-sesion" data-traducir="cerrarSesion">Cerrar sesión</a>
+
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>
     </nav>
 
 </header>
@@ -68,78 +73,83 @@ $ticket = mysqli_fetch_array($resultado);
 <main>
 
     <div class="bienvenida">
-        <h2>Detalle del ticket</h2>
-        <p>Información del ticket seleccionado.</p>
+        <h2 data-traducir="detalleTicket">Detalle del ticket</h2>
+        <p data-traducir="informacionTicket">Información del ticket seleccionado.</p>
     </div>
 
     <div class="tabla-contenedor">
 
-        <h3>Ticket #<?php echo $ticket["id_ticket"]; ?></h3>
+        <h3>
+            <span data-traducir="ticket">Ticket</span>
+            #<?php echo $ticket["id_ticket"]; ?>
+        </h3>
 
         <p>
-            <strong>Usuario:</strong>
+            <strong data-traducir="usuario">Usuario:</strong>
             <?php echo $ticket["nombre"]; ?>
         </p>
 
         <p>
-            <strong>Título:</strong>
+            <strong data-traducir="titulo">Título:</strong>
             <?php echo $ticket["titulo"]; ?>
         </p>
 
         <p>
-            <strong>Descripción:</strong>
+            <strong data-traducir="descripcion">Descripción:</strong>
             <?php echo $ticket["descripcion"]; ?>
         </p>
 
         <p>
-            <strong>Prioridad:</strong>
+            <strong data-traducir="prioridad">Prioridad:</strong>
             <?php echo $ticket["prioridad"]; ?>
         </p>
 
         <p>
-            <strong>Estado:</strong>
+            <strong data-traducir="estado">Estado:</strong>
             <?php echo $ticket["estado"]; ?>
         </p>
 
         <p>
-            <strong>Fecha de creación:</strong>
+            <strong data-traducir="fechaCreacion">Fecha de creación:</strong>
             <?php echo $ticket["fecha_creacion"]; ?>
         </p>
 
         <p>
-            <strong>Fecha de cierre:</strong>
+            <strong data-traducir="fechaCierre">Fecha de cierre:</strong>
             <?php echo $ticket["fecha_clierre"]; ?>
         </p>
 
         <br>
 
-        <h3>Cambiar estado</h3>
+        <h3 data-traducir="cambiarEstado">Cambiar estado</h3>
 
         <form method="POST">
 
-            <label>Nuevo estado:</label>
+            <label data-traducir="nuevoEstado">Nuevo estado:</label>
 
             <select name="estado" required>
-                <option value="Abierto">Abierto</option>
-                <option value="En proceso">En proceso</option>
-                <option value="Cerrado">Cerrado</option>
+                <option value="Abierto" data-traducir="abierto">Abierto</option>
+                <option value="En proceso" data-traducir="enProceso">En proceso</option>
+                <option value="Cerrado" data-traducir="cerrado">Cerrado</option>
             </select>
 
-            <button type="submit">Guardar estado</button>
+            <button type="submit" data-traducir="guardarEstado">Guardar estado</button>
 
         </form>
 
         <br>
 
-        <a href="tickets.php">Volver a tickets</a>
+        <a href="tickets.php" data-traducir="volverTickets">Volver a tickets</a>
 
     </div>
 
 </main>
 
 <footer>
-    <p>© 2026 Covasg - Sistema de Gestión de Soporte</p>
+    <p data-traducir="pieTecnico">© 2026 Covasg - Sistema de Gestión de Soporte</p>
 </footer>
+
+<script src="/Proyecto_final/js/traductor.js"></script>
 
 </body>
 

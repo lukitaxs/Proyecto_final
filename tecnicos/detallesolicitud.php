@@ -34,7 +34,7 @@ $solicitud = mysqli_fetch_array($resultado);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Detalle de solicitud - Covasg</title>
+    <title data-traducir="detalleSolicitud">Detalle de solicitud - Covasg</title>
 
     <link rel="stylesheet" href="css/estilotecnico.css">
 </head>
@@ -46,10 +46,15 @@ $solicitud = mysqli_fetch_array($resultado);
     <h1>Covasg</h1>
 
     <nav>
-        <a href="tecnicos.php">Inicio</a>
-        <a href="tickets.php">Tickets</a>
-        <a href="solicitudes.php">Solicitudes</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="tecnicos.php" data-traducir="inicio">Inicio</a>
+        <a href="tickets.php" data-traducir="tickets">Tickets</a>
+        <a href="solicitudes.php" data-traducir="solicitudes">Solicitudes</a>
+        <a href="../php/cerrarsesion.php" class="cerrar-sesion" data-traducir="cerrarSesion">Cerrar sesión</a>
+
+        <select onchange="cambiarIdioma(this.value)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>
     </nav>
 
 </header>
@@ -58,85 +63,65 @@ $solicitud = mysqli_fetch_array($resultado);
 
     <div class="bienvenida">
 
-        <h2>Detalle de la solicitud</h2>
+        <h2 data-traducir="detalleSolicitud">Detalle de la solicitud</h2>
 
-        <p>Información de la solicitud seleccionada.</p>
+        <p data-traducir="informacionSolicitud">Información de la solicitud seleccionada.</p>
 
     </div>
 
     <div class="tabla-contenedor">
 
-        <h3>Solicitud #<?php echo $solicitud["id_solicitud"]; ?></h3>
-
+        <h3>
+            <span data-traducir="solicitud">Solicitud</span>
+            #<?php echo $solicitud["id_solicitud"]; ?>
+        </h3>
         <p>
-            <strong>Usuario:</strong>
+            <strong data-traducir="usuario">Usuario:</strong>
             <?php echo $solicitud["nombre"]; ?>
         </p>
-
         <p>
-            <strong>Título:</strong>
+            <strong data-traducir="titulo">Título:</strong>
             <?php echo $solicitud["titulo"]; ?>
         </p>
-
         <p>
-            <strong>Tipo:</strong>
+            <strong data-traducir="tipo">Tipo:</strong>
             <?php echo $solicitud["tipo"]; ?>
         </p>
-
         <p>
-            <strong>Prioridad:</strong>
+            <strong data-traducir="prioridad">Prioridad:</strong>
             <?php echo $solicitud["prioridad"]; ?>
         </p>
-
         <p>
-            <strong>Descripción:</strong>
+            <strong data-traducir="descripcion">Descripción:</strong>
             <?php echo $solicitud["descripcion"]; ?>
         </p>
-
         <p>
-            <strong>Estado:</strong>
+            <strong data-traducir="estado">Estado:</strong>
             <?php echo $solicitud["estado"]; ?>
         </p>
-
         <p>
-            <strong>Fecha de creación:</strong>
+            <strong data-traducir="fechaCreacion">Fecha de creación:</strong>
             <?php echo $solicitud["fecha_creacion"]; ?>
         </p>
-
         <br>
-
-        <h3>Cambiar estado</h3>
-
+        <h3 data-traducir="cambiarEstado">Cambiar estado</h3>
         <form method="POST">
-
-            <label>Nuevo estado:</label>
-
+            <label data-traducir="nuevoEstado">Nuevo estado:</label>
             <select name="estado" required>
-
-                <option value="Pendiente">Pendiente</option>
-
-                <option value="En proceso">En proceso</option>
-
-                <option value="Finalizada">Finalizada</option>
-
+                <option value="Pendiente" data-traducir="pendiente">Pendiente</option>
+                <option value="En proceso" data-traducir="enProceso">En proceso</option>
+                <option value="Finalizada" data-traducir="finalizada">Finalizada</option>
             </select>
-
-            <button type="submit">Guardar estado</button>
-
+            <button type="submit" data-traducir="guardarEstado">Guardar estado</button>
         </form>
-
         <br>
-
-        <a href="solicitudes.php">Volver a solicitudes</a>
-
+        <a href="solicitudes.php" data-traducir="volverSolicitudes">Volver a solicitudes</a>
     </div>
-
 </main>
-
 <footer>
-    <p>© 2026 Covasg - Sistema de Gestión de Soporte</p>
+    <p data-traducir="pieTecnico">© 2026 Covasg - Sistema de Gestión de Soporte</p>
 </footer>
-
+<script src="/Proyecto_final/js/traductor.js"></script>
 </body>
 
 </html>

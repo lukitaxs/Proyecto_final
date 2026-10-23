@@ -251,3 +251,29 @@ footer {
         min-height: auto;
     }
 }
+
+
+       
+/* Idioma */
+
+nav select {
+    background: #4facfe;
+    color: white;
+    border: 2px solid #4facfe;
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-left: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav select:hover {
+    background: #5b0080;
+    border-color: #5b0080;
+}
+
+nav select option {
+    background: white;
+    color: #333;
+}
