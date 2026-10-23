@@ -2,10 +2,10 @@
 
 include("../../php/conexion.php");
 
-$consulta_marcas = "SELECT * FROM Marca";
+$consulta_marcas = "SELECT * FROM marca";
 $resultado_marcas = mysqli_query($conexion, $consulta_marcas);
 
-$consulta_modelos = "SELECT * FROM Modelo";
+$consulta_modelos = "SELECT * FROM modelo";
 $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
 
 ?>
@@ -91,84 +91,36 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
 
                 <div class="campo">
 
-                    <label for="tipo_dispositivo">
-                        Tipo de dispositivo
-                    </label>
+                    <label for="tipo_dispositivo">Tipo de dispositivo</label>
 
-                    <select
-                        name="tipo_dispositivo"
-                        id="tipo_dispositivo"
-                        required
-                    >
-                        <option value="">
-                            Seleccione un tipo
-                        </option>
-
-                        <option value="Laptop">
-                            Laptop
-                        </option>
-
-                        <option value="PC">
-                            PC
-                        </option>
-
-                        <option value="Monitor">
-                            Monitor
-                        </option>
-
-                        <option value="Impresora">
-                            Impresora
-                        </option>
-
-                        <option value="Otro">
-                            Otro
-                        </option>
-
+                    <select name="tipo_dispositivo" id="tipo_dispositivo" required>
+                        <option value="">Seleccione un tipo</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="PC">PC</option>
+                        <option value="Monitor">Monitor</option>
+                        <option value="Impresora">Impresora</option>
+                        <option value="Otro">Otro</option>
                     </select>
 
                 </div>
 
                 <div class="campo">
 
-                    <label for="estado_actual">
-                        Estado actual
-                    </label>
+                    <label for="estado_actual">Estado actual</label>
 
-                    <select
-                        name="estado_actual"
-                        id="estado_actual"
-                        required
-                    >
-
-                        <option value="">
-                            Seleccione un estado
-                        </option>
-
-                        <option value="Disponible">
-                            Disponible
-                        </option>
-
-                        <option value="En uso">
-                            En uso
-                        </option>
-
-                        <option value="En reparación">
-                            En reparación
-                        </option>
-
-                        <option value="Fuera de servicio">
-                            Fuera de servicio
-                        </option>
-
+                    <select name="estado_actual" id="estado_actual" required>
+                        <option value="">Seleccione un estado</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="En uso">En uso</option>
+                        <option value="En reparación">En reparación</option>
+                        <option value="Fuera de servicio">Fuera de servicio</option>
                     </select>
 
                 </div>
 
                 <div class="campo">
 
-                    <label for="numero_serie">
-                        Número de serie
-                    </label>
+                    <label for="numero_serie">Número de serie</label>
 
                     <input
                         type="text"
@@ -181,36 +133,22 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
 
                 <div class="campo">
 
-                    <label for="marca">
-                        Marca
-                    </label>
+                    <label for="id_marca">Marca</label>
 
-                    <select
-                        name="marca"
-                        id="marca"
-                        required
-                    >
+                    <select name="id_marca" id="id_marca" required>
 
-                        <option value="">
-                            Seleccione una marca
-                        </option>
+                        <option value="">Seleccione una marca</option>
 
                         <?php
-
                         while ($marca = mysqli_fetch_array($resultado_marcas)) {
-
                         ?>
 
-                            <option value="<?php echo $marca["nombre_marca"]; ?>">
-
+                            <option value="<?php echo $marca["id_marca"]; ?>">
                                 <?php echo $marca["nombre_marca"]; ?>
-
                             </option>
 
                         <?php
-
                         }
-
                         ?>
 
                     </select>
@@ -219,36 +157,25 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
 
                 <div class="campo">
 
-                    <label for="modelo">
-                        Modelo
-                    </label>
+                    <label for="id_modelo">Modelo</label>
 
-                    <select
-                        name="modelo"
-                        id="modelo"
-                        required
-                    >
+                    <select name="id_modelo" id="id_modelo" required disabled>
 
-                        <option value="">
-                            Seleccione un modelo
-                        </option>
+                        <option value="">Primero seleccione una marca</option>
 
                         <?php
-
                         while ($modelo = mysqli_fetch_array($resultado_modelos)) {
-
                         ?>
 
-                            <option value="<?php echo $modelo["nombre_modelo"]; ?>">
-
+                            <option
+                                value="<?php echo $modelo["id_modelo"]; ?>"
+                                data-marca="<?php echo $modelo["id_marca"]; ?>"
+                            >
                                 <?php echo $modelo["nombre_modelo"]; ?>
-
                             </option>
 
                         <?php
-
                         }
-
                         ?>
 
                     </select>
@@ -257,9 +184,7 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
 
                 <div class="campo">
 
-                    <label for="codigo_inventario">
-                        Código de inventario
-                    </label>
+                    <label for="codigo_inventario">Código de inventario</label>
 
                     <input
                         type="text"
@@ -272,9 +197,7 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
 
                 <div class="campo">
 
-                    <label for="ubicacion_fisica">
-                        Ubicación física
-                    </label>
+                    <label for="ubicacion_fisica">Ubicación física</label>
 
                     <input
                         type="text"
@@ -287,9 +210,7 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
 
                 <div class="campo">
 
-                    <label for="observaciones">
-                        Observaciones
-                    </label>
+                    <label for="observaciones">Observaciones</label>
 
                     <input
                         type="text"
@@ -315,17 +236,11 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
 
             <div class="botones">
 
-                <a
-                    href="consultaactivos.php"
-                    class="boton cancelar"
-                >
+                <a href="consultaactivos.php" class="boton cancelar">
                     Cancelar
                 </a>
 
-                <button
-                    type="submit"
-                    class="boton guardar"
-                >
+                <button type="submit" class="boton guardar">
                     Registrar activo
                 </button>
 
@@ -344,6 +259,46 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
     </p>
 
 </footer>
+
+
+<script>
+
+        const marca = document.getElementById("id_marca");
+        const modelo = document.getElementById("id_modelo");
+
+        const modelos = Array.from(modelo.options).slice(1);
+
+        marca.addEventListener("change", function () {
+
+            modelo.innerHTML = "";
+
+            const opcionInicial = document.createElement("option");
+            opcionInicial.value = "";
+            opcionInicial.textContent = "Seleccione un modelo";
+
+            modelo.appendChild(opcionInicial);
+
+            modelos.forEach(function (item) {
+
+                if (item.getAttribute("data-marca") == marca.value) {
+                    modelo.appendChild(item.cloneNode(true));
+                }
+
+            });
+
+            if (marca.value == "") {
+                opcionInicial.textContent = "Primero seleccione una marca";
+                modelo.disabled = true;
+            } else if (modelo.options.length == 1) {
+                opcionInicial.textContent = "Esta marca no tiene modelos";
+                modelo.disabled = true;
+            } else {
+                modelo.disabled = false;
+            }
+
+        });
+
+</script>
 
 </body>
 </html>

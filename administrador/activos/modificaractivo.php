@@ -2,7 +2,7 @@
 
 session_start();
 
-// Verificar que haya iniciado sesión como administrador
+/* Verificar que haya iniciado sesión como administrador */
 if (!isset($_SESSION["id_usuario"]) || !isset($_SESSION["id_rol"]) || $_SESSION["id_rol"] != 3) {
     header("Location: ../../login/login.php");
     exit();
@@ -170,7 +170,7 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
             </div>
 
 
-            <!-- MODELO -->
+            <!-- modelo -->
 
             <div class="campo">
 
@@ -221,7 +221,7 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
             </div>
 
 
-            <!-- CÓDIGO INVENTARIO -->
+            <!-- còdigo inventario -->
 
             <div class="campo">
 

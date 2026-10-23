@@ -3,16 +3,16 @@
 session_start();
 
 // Verificar que haya iniciado sesión como administrador
-if (!isset($_SESSION["id_usuario"]) || !isset($_SESSION["id_rol"]) || $_SESSION["id_rol"] != 3) {
+if (
+    !isset($_SESSION["id_usuario"]) ||
+    !isset($_SESSION["id_rol"]) ||
+    $_SESSION["id_rol"] != 3
+) {
     header("Location: ../../login/login.php");
     exit();
 }
 
 include("../../php/conexion.php");
-
-$consulta = "SELECT * FROM activo_tecnologico";
-$resultado = mysqli_query($conexion, $consulta);
-
 
 $consulta = "SELECT * FROM activo_tecnologico";
 $resultado = mysqli_query($conexion, $consulta);
@@ -43,7 +43,9 @@ $resultado = mysqli_query($conexion, $consulta);
         <a href="consultaactivos.php">Activos</a>
         <a href="../tickets/consultatickets.php">Tickets</a>
         <a href="../solicitudes/consultasolicitudes.php">Solicitudes</a>
-        <a href="../../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
+        <a href="../../php/cerrarsesion.php" class="cerrar-sesion">
+            Cerrar sesión
+        </a>
     </nav>
 
 </header>
@@ -57,13 +59,11 @@ $resultado = mysqli_query($conexion, $consulta);
         </div>
 
         <div>
-
             <h2>Consulta de activos</h2>
 
             <p>
                 Activos tecnológicos registrados en el sistema.
             </p>
-
         </div>
 
     </section>
@@ -126,6 +126,12 @@ $resultado = mysqli_query($conexion, $consulta);
                         </td>
 
                         <td>
+
+                            <a href="asignaractivo.php?id=<?php echo $activo["id_activo"]; ?>">
+                                Asignar usuario
+                            </a>
+
+                            |
 
                             <a href="modificaractivo.php?id=<?php echo $activo["id_activo"]; ?>">
                                 Modificar

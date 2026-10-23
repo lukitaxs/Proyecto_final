@@ -14,7 +14,11 @@ if (
 
 include("../../php/conexion.php");
 
-$consulta = "SELECT * FROM usuario";
+$consulta = "SELECT * FROM usuario
+             WHERE id_rol = 2
+             AND id_usuario NOT IN (
+                 SELECT id_usuario FROM tecnico
+             )";
 $resultado = mysqli_query($conexion, $consulta);
 
 ?>
