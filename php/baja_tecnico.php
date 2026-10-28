@@ -1,9 +1,12 @@
-
 <?php
 
 session_start();
 
-if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 3) {
+if (
+    !isset($_SESSION["id_usuario"]) ||
+    !isset($_SESSION["id_rol"]) ||
+    $_SESSION["id_rol"] != 3
+) {
     header("Location: ../login/login.php");
     exit();
 }
@@ -19,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $id_tecnico = (int) $_POST["id_tecnico"];
 
-    $consulta = "SELECT id_usuario FROM tecnico
+    $consulta = "SELECT id_usuario
+                 FROM tecnico
                  WHERE id_tecnico = '$id_tecnico'";
 
     $resultado = mysqli_query($conexion, $consulta);
@@ -29,38 +33,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $tecnico = mysqli_fetch_assoc($resultado);
         $id_usuario = $tecnico["id_usuario"];
 
-        mysqli_begin_transaction($conexion);
+        $actualizar = "UPDATE usuario
+                       SET estado = 'Inactivo'
+                       WHERE id_usuario = '$id_usuario'";
 
-        $eliminar_tecnico = "DELETE FROM tecnico
-                             WHERE id_tecnico = '$id_tecnico'";
+        if (mysqli_query($conexion, $actualizar)) {
 
-        $resultado_tecnico = mysqli_query($conexion, $eliminar_tecnico);
-
-        if ($resultado_tecnico) {
-
-            $eliminar_usuario = "DELETE FROM usuario
-                                 WHERE id_usuario = '$id_usuario'";
-
-            $resultado_usuario = mysqli_query($conexion, $eliminar_usuario);
-
-            if ($resultado_usuario) {
-
-                mysqli_commit($conexion);
-
-                header("Location: ../administrador/tecnico/consultatecnicos.php");
-                exit();
-
-            } else {
-
-                mysqli_rollback($conexion);
-                echo "No se pudo eliminar el usuario. Puede tener registros relacionados.";
-
-            }
+            header("Location: ../administrador/tecnico/consultatecnicos.php");
+            exit();
 
         } else {
 
-            mysqli_rollback($conexion);
-            echo "No se pudo eliminar el técnico. Puede tener registros relacionados.";
+            echo "No se pudo dar de baja al técnico.";
 
         }
 

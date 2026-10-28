@@ -39,6 +39,8 @@ $resultadoUsuarios = mysqli_query($conexion, $consultaUsuarios);
     <title>Modificar técnico - Covasg</title>
 
     <link rel="stylesheet" href="../css/estilotecnicos.css">
+    <link rel="icon" href="../../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

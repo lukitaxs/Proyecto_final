@@ -21,6 +21,8 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 2) {
     <title>Panel Técnico - Covasg</title>
 
     <link rel="stylesheet" href="css/estilotecnico.css">
+    <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

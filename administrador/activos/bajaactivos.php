@@ -25,6 +25,8 @@ $resultado = mysqli_query($conexion, $consulta);
     <title>Baja de activo - Covasg</title>
 
     <link rel="stylesheet" href="../css/altausuario.css">
+    <link rel="icon" href="../../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

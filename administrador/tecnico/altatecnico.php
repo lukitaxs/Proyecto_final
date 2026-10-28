@@ -33,6 +33,8 @@ $resultado = mysqli_query($conexion, $consulta);
     <title>Alta de técnico - Covasg</title>
 
     <link rel="stylesheet" href="../css/estilotecnicos.css">
+    <link rel="icon" href="../../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

@@ -53,6 +53,8 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
     <title>Modificar activo - Covasg</title>
 
     <link rel="stylesheet" href="../css/estilomodificaractivo.css">
+    <link rel="icon" href="../../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

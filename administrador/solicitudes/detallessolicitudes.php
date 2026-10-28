@@ -39,6 +39,8 @@ $solicitud = mysqli_fetch_array($resultado);
     <title>Detalle de solicitud - Covasg</title>
 
     <link rel="stylesheet" href="../css/estilodetallessolicitudes.css">
+    <link rel="icon" href="../../img/CovasgLogo.png" type="image/png">
+
 
 </head>
 

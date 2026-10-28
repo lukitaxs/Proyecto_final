@@ -48,6 +48,8 @@ $ticket = mysqli_fetch_array($resultado);
     <title data-traducir="detalleTicket">Detalle del ticket - Covasg</title>
 
     <link rel="stylesheet" href="css/estilotecnico.css">
+    <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

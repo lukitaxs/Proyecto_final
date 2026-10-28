@@ -1,12 +1,21 @@
 <?php
 
-include("../php/conexion.php");
-
 session_start();
+
+if (!isset($_SESSION["id_usuario"])) {
+    header("Location: ../login/login.php");
+    exit;
+}
+
+include("../php/conexion.php");
 
 $id_usuario = $_SESSION["id_usuario"];
 
-$consulta = "SELECT * FROM ticket WHERE id_usuario = '$id_usuario' ORDER BY id_ticket DESC";
+$consulta = "SELECT ticket.*, activo_tecnologico.tipo_dispositivo, activo_tecnologico.codigo_inventario
+FROM ticket
+LEFT JOIN activo_tecnologico ON ticket.id_activo = activo_tecnologico.id_activo
+WHERE ticket.id_usuario = '$id_usuario'
+ORDER BY ticket.id_ticket DESC";
 
 $resultado = mysqli_query($conexion, $consulta);
 
@@ -20,6 +29,8 @@ $resultado = mysqli_query($conexion, $consulta);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mis tickets - Covasg</title>
     <link rel="stylesheet" href="cssusuario/estilomisticket.css">
+    <link rel="icon" href="../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>
@@ -30,10 +41,10 @@ $resultado = mysqli_query($conexion, $consulta);
 
     <nav>
         <a href="usuario.php">Inicio</a>
-        <a href="ticket.html">Crear ticket</a>
+        <a href="ticket.php">Crear ticket</a>
         <a href="misticket.php">Mis tickets</a>
         <a href="crearsolicitud.html">Solicitudes</a>
-        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a> 
+        <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
     </nav>
 
 </header>
@@ -59,6 +70,7 @@ $resultado = mysqli_query($conexion, $consulta);
 <tr>
     <th>ID</th>
     <th>Problema</th>
+    <th>Equipo relacionado</th>
     <th>Fecha</th>
     <th>Estado</th>
     <th>Acción</th>
@@ -82,6 +94,18 @@ while ($ticket = mysqli_fetch_assoc($resultado)) {
 
     <td>
         <?php echo $ticket["titulo"]; ?>
+    </td>
+
+    <td>
+        <?php
+
+        if ($ticket["tipo_dispositivo"] != NULL) {
+            echo $ticket["tipo_dispositivo"] . " - " . $ticket["codigo_inventario"];
+        } else {
+            echo "Sin equipo relacionado";
+        }
+
+        ?>
     </td>
 
     <td>
@@ -109,8 +133,8 @@ while ($ticket = mysqli_fetch_assoc($resultado)) {
     </td>
 
     <td>
-        <a href="detalleticket.php?id=<?php 
-                echo $ticket["id_ticket"]; ?>">Ver</a>    </td>
+        <a href="detalleticket.php?id=<?php echo $ticket["id_ticket"]; ?>">Ver</a>
+    </td>
 
 </tr>
 

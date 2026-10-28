@@ -1,3 +1,11 @@
+<?php
+
+include("../php/conexion.php");
+
+$consulta = "SELECT id_activo, tipo_dispositivo, codigo_inventario, ubicacion_fisica FROM activo_tecnologico";
+$resultado = mysqli_query($conexion, $consulta);
+
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -17,7 +25,7 @@
 
         <nav>
             <a href="usuario.php">Inicio</a>
-            <a href="ticket.html">Crear ticket</a>
+            <a href="ticket.php">Crear ticket</a>
             <a href="misticket.php">Mis tickets</a>
             <a href="crearsolicitud.html">Solicitudes</a>
             <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
@@ -39,7 +47,7 @@
 
         <section class="formulario-contenedor">
 
-            <form action="../php/crear_ticket.php" method="POST">
+            <form action="../php/crear_ticket.php" method="POST" enctype="multipart/form-data">
 
                 <div class="grupo">
 
@@ -59,12 +67,23 @@
 
                     <label for="equipo">Equipo relacionado</label>
 
-                    <input
-                        type="text"
-                        id="equipo"
-                        name="equipo"
-                        placeholder="Ejemplo: PC de Administración 02"
-                    >
+                    <select id="equipo" name="id_activo" required>
+
+                        <option value="">Seleccione un equipo</option>
+
+                        <?php
+                        while ($activo = mysqli_fetch_assoc($resultado)) {
+                        ?>
+
+                            <option value="<?php echo $activo['id_activo']; ?>">
+                                <?php echo $activo['tipo_dispositivo'] . " - " . $activo['codigo_inventario'] . " - " . $activo['ubicacion_fisica']; ?>
+                            </option>
+
+                        <?php
+                        }
+                        ?>
+
+                    </select>
 
                 </div>
 
@@ -135,4 +154,4 @@
 
 </body>
 
-</html> 
+</html>

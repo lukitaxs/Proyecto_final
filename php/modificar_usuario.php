@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["id_rol"]) || $_SESSION["id_rol"] != 3) {
+    header("Location: ../login/login.php");
+    exit;
+}
+
 include("conexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -10,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $contrasenia = $_POST["contrasenia"];
     $id_rol = $_POST["id_rol"];
 
-    /* Si no se escribió una nueva contraseña */
     if ($contrasenia == "") {
 
         $consulta = "UPDATE usuario
@@ -21,7 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     } else {
 
-        /* Si se escribió una nueva contraseña */
         $contrasenia = password_hash($contrasenia, PASSWORD_DEFAULT);
 
         $consulta = "UPDATE usuario
@@ -38,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($resultado) {
 
         header("Location: ../administrador/consultausuario.php");
-        exit();
+        exit;
 
     } else {
 

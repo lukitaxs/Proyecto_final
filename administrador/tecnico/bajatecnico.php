@@ -26,6 +26,8 @@ $tecnico = mysqli_fetch_array($resultado);
     <title>Baja de técnico - Covasg</title>
 
     <link rel="stylesheet" href="../css/estilotecnicos.css">
+    <link rel="icon" href="../../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

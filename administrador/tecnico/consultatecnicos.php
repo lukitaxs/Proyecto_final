@@ -2,7 +2,6 @@
 
 session_start();
 
-// Verificar que haya iniciado sesión como administrador
 if (
     !isset($_SESSION["id_usuario"]) ||
     !isset($_SESSION["id_rol"]) ||
@@ -14,7 +13,7 @@ if (
 
 include("../../php/conexion.php");
 
-$consulta = "SELECT tecnico.*, usuario.nombre
+$consulta = "SELECT tecnico.*, usuario.nombre, usuario.estado
              FROM tecnico
              INNER JOIN usuario
              ON tecnico.id_usuario = usuario.id_usuario";
@@ -33,6 +32,8 @@ $resultado = mysqli_query($conexion, $consulta);
     <title>Consulta de técnicos - Covasg</title>
 
     <link rel="stylesheet" href="../css/estilotecnicos.css">
+    <link rel="icon" href="../../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>
@@ -83,6 +84,7 @@ $resultado = mysqli_query($conexion, $consulta);
                     <th>Rol</th>
                     <th>Área</th>
                     <th>Especialidad</th>
+                    <th>Estado</th>
                     <th>Acciones</th>
                 </tr>
 
@@ -90,11 +92,7 @@ $resultado = mysqli_query($conexion, $consulta);
 
             <tbody>
 
-                <?php
-
-                while ($tecnico = mysqli_fetch_array($resultado)) {
-
-                ?>
+                <?php while ($tecnico = mysqli_fetch_array($resultado)) { ?>
 
                     <tr>
 
@@ -119,24 +117,38 @@ $resultado = mysqli_query($conexion, $consulta);
                         </td>
 
                         <td>
+                            <?php echo $tecnico["estado"]; ?>
+                        </td>
 
-                            <a href="modificartecnico.php?id=<?php echo $tecnico["id_tecnico"]; ?>">
-                                Modificar
-                            </a>
+                        <td>
 
-                            <a href="bajatecnico.php?id=<?php echo $tecnico["id_tecnico"]; ?>">
-                                Eliminar
-                            </a>
+                            <?php if ($tecnico["estado"] == "Activo") { ?>
+
+                                <a href="modificartecnico.php?id=<?php echo $tecnico["id_tecnico"]; ?>">
+                                    Modificar
+                                </a>
+
+                                <a href="bajatecnico.php?id=<?php echo $tecnico["id_tecnico"]; ?>">
+                                    Dar de baja
+                                </a>
+
+                            <?php } else { ?>
+
+                                <form action="../../php/activar_tecnico.php" method="POST">
+
+                                    <input type="hidden" name="id_tecnico" value="<?php echo $tecnico["id_tecnico"]; ?>">
+
+                                    <button type="submit">Activar técnico</button>
+
+                                </form>
+
+                            <?php } ?>
 
                         </td>
 
                     </tr>
 
-                <?php
-
-                }
-
-                ?>
+                <?php } ?>
 
             </tbody>
 

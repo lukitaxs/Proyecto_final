@@ -20,6 +20,8 @@ $resultado_modelos = mysqli_query($conexion, $consulta_modelos);
     <title>Alta de activo - Covasg</title>
 
     <link rel="stylesheet" href="../css/altausuario.css">
+    <link rel="icon" href="../../img/CovasgLogo.png" type="image/png">
+
 </head>
 
 <body>

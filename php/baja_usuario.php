@@ -1,5 +1,12 @@
 <?php
 
+session_start();
+
+if (!isset($_SESSION["id_rol"]) || $_SESSION["id_rol"] != 3) {
+    header("Location: ../login/login.php");
+    exit;
+}
+
 include("conexion.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,31 +25,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (mysqli_query($conexion, $eliminar)) {
 
-            header(
-                "Location: ../administrador/bajausuario.php?mensaje=ok"
-            );
+            header("Location: ../administrador/bajausuario.php?mensaje=ok");
+            exit;
 
         } else {
 
-            header(
-                "Location: ../administrador/bajausuario.php?mensaje=error"
-            );
+            header("Location: ../administrador/bajausuario.php?mensaje=error");
+            exit;
 
         }
 
     } else {
 
-        header(
-            "Location: ../administrador/bajausuario.php?mensaje=noexiste"
-        );
+        header("Location: ../administrador/bajausuario.php?mensaje=noexiste");
+        exit;
 
     }
 
 } else {
 
-    header(
-        "Location: ../administrador/bajausuario.php"
-    );
+    header("Location: ../administrador/bajausuario.php");
+    exit;
 
 }
 

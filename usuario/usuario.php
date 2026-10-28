@@ -32,7 +32,7 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 1) {
        
     <nav>
         <a href="usuario.php">Inicio</a>
-        <a href="ticket.html">Crear ticket</a>
+        <a href="ticket.php">Crear ticket</a>
         <a href="misticket.php">Mis tickets</a>
         <a href="crearsolicitud.html">Solicitudes</a>
         <a href="../php/cerrarsesion.php" class="cerrar-sesion">Cerrar sesión</a>
@@ -55,7 +55,7 @@ if (!isset($_SESSION["id_usuario"]) || $_SESSION["id_rol"] != 1) {
 
         <section class="opciones">
 
-            <a href="ticket.html" class="tarjeta">
+            <a href="ticket.php" class="tarjeta">
 
                 <div class="icono">🎫</div>
 
